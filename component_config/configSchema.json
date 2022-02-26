@@ -1,9 +1,22 @@
 {
-  "title": "Person",
+  "title": "CEPS data source Configuration",
   "type": "object",
   "required": [],
   "properties": {
-
+    "date_from": {
+      "type": "string",
+      "title": "Date from",
+      "description": "Start date of the data to be fetched eg. 3 days ago or exact date 2021-01-01",
+      "default": "1 month ago",
+      "propertyOrder": 10
+    },
+    "date_to": {
+      "title": "Date to",
+      "type": "string",
+      "description": "End date of the data to be fetched eg. now or exact date 2021-02-01",
+      "default": "now",
+      "propertyOrder": 20
+    },
     "endpoints": {
       "type": "array",
       "format": "table",
@@ -12,6 +25,7 @@
       "items": {
         "type": "object",
         "title": "Endpoint",
+        "propertyOrder": 30,
         "properties": {
           "endpoint_name": {
             "type": "string",
@@ -42,43 +56,43 @@
         }
       },
       "default": [
-      {
-        "endpoint_name": "CrossborderPowerFlows",
-        "granularity": "MI"
-      },
-      {
-        "endpoint_name": "Generation",
-        "granularity": "HR"
-      },
-      {
-        "endpoint_name": "GenerationPlan",
-        "granularity": "HR"
-      },
-      {
-        "endpoint_name": "GenerationRES",
-        "granularity": "MI"
-      },
-      {
-        "endpoint_name": "Load",
-        "granularity": "MI"
-      },
-      {
-        "endpoint_name": "OdhadovanaCenaOdchylky",
-        "granularity": "None"
-      },
-      {
-        "endpoint_name": "OfferPrices",
-        "granularity": "None"
-      },
-      {
-        "endpoint_name": "RegulationEnergy",
-        "granularity": "MI"
-      },
-      {
-        "endpoint_name": "RegulationEnergyB",
-        "granularity": "MI"
-      }
-    ]
+        {
+          "endpoint_name": "CrossborderPowerFlows",
+          "granularity": "MI"
+        },
+        {
+          "endpoint_name": "Generation",
+          "granularity": "HR"
+        },
+        {
+          "endpoint_name": "GenerationPlan",
+          "granularity": "HR"
+        },
+        {
+          "endpoint_name": "GenerationRES",
+          "granularity": "MI"
+        },
+        {
+          "endpoint_name": "Load",
+          "granularity": "MI"
+        },
+        {
+          "endpoint_name": "OdhadovanaCenaOdchylky",
+          "granularity": "None"
+        },
+        {
+          "endpoint_name": "OfferPrices",
+          "granularity": "None"
+        },
+        {
+          "endpoint_name": "RegulationEnergy",
+          "granularity": "MI"
+        },
+        {
+          "endpoint_name": "RegulationEnergyB",
+          "granularity": "MI"
+        }
+      ]
     }
   }
 }
