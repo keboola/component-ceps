@@ -1,17 +1,84 @@
 {
+  "title": "Person",
   "type": "object",
-  "title": "extractor configuration",
-  "required": [
-    "print_hello"
-  ],
+  "required": [],
   "properties": {
-    "print_hello": {
-      "type": "boolean",
-      "title": "Print Hello"
-    },
-    "debug": {
-      "type": "boolean",
-      "title": "Debug"
+
+    "endpoints": {
+      "type": "array",
+      "format": "table",
+      "title": "Endpoints",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "title": "Endpoint",
+        "properties": {
+          "endpoint_name": {
+            "type": "string",
+            "title": "Endpoint name",
+            "enum": [
+              "CrossborderPowerFlows",
+              "Generation",
+              "GenerationPlan",
+              "GenerationRES",
+              "Load",
+              "OdhadovanaCenaOdchylky",
+              "OfferPrices",
+              "RegulationEnergy",
+              "RegulationEnergyB"
+            ],
+            "default": "GenerationPlan"
+          },
+          "granularity": {
+            "type": "string",
+            "title": "Granularity",
+            "enum": [
+              "HR",
+              "MI",
+              "None"
+            ],
+            "default": "HR"
+          }
+        }
+      },
+      "default": [
+      {
+        "endpoint_name": "CrossborderPowerFlows",
+        "granularity": "MI"
+      },
+      {
+        "endpoint_name": "Generation",
+        "granularity": "HR"
+      },
+      {
+        "endpoint_name": "GenerationPlan",
+        "granularity": "HR"
+      },
+      {
+        "endpoint_name": "GenerationRES",
+        "granularity": "MI"
+      },
+      {
+        "endpoint_name": "Load",
+        "granularity": "MI"
+      },
+      {
+        "endpoint_name": "OdhadovanaCenaOdchylky",
+        "granularity": "None"
+      },
+      {
+        "endpoint_name": "OfferPrices",
+        "granularity": "None"
+      },
+      {
+        "endpoint_name": "RegulationEnergy",
+        "granularity": "MI"
+      },
+      {
+        "endpoint_name": "RegulationEnergyB",
+        "granularity": "MI"
+      }
+    ]
     }
   }
 }

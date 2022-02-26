@@ -1,81 +1,107 @@
-"""
-Template Component main class.
-
-"""
-import csv
 import logging
-from datetime import datetime
-
+import warnings
+from ceps import CepsClient, CepsClientException
 from keboola.component.base import ComponentBase
 from keboola.component.exceptions import UserException
+import keboola.utils.date as dutils
+from csv_tools import CachedOrthogonalDictWriter
+import tempfile
 
-# configuration variables
-KEY_API_TOKEN = '#api_token'
-KEY_PRINT_HELLO = 'print_hello'
+KEY_DATE_FROM = 'date_from'
+KEY_DATE_TO = 'date_to'
 
-# list of mandatory parameters => if some is missing,
-# component will fail with readable message on initialization.
-REQUIRED_PARAMETERS = [KEY_PRINT_HELLO]
+KEY_ENDPOINTS = "endpoints"
+KEY_ENDPOINT_NAME = "endpoint_name"
+KEY_ENDPOINT_GRANULARITY = "granularity"
+KEY_CONTINUE_ON_FAIL = "continue_on_fail"
+
+# not implemented in UI, for case of further implementation
+KEY_ENDPOINT_FUNCTION = "function"
+
+REQUIRED_PARAMETERS = [KEY_DATE_FROM, KEY_DATE_TO]
 REQUIRED_IMAGE_PARS = []
+
+warnings.filterwarnings(
+    "ignore",
+    message="The localize method is no longer necessary, as this time zone supports the fold attribute",
+)
 
 
 class Component(ComponentBase):
-    """
-        Extends base class for general Python components. Initializes the CommonInterface
-        and performs configuration validation.
-
-        For easier debugging the data folder is picked up by default from `../data` path,
-        relative to working directory.
-
-        If `debug` parameter is present in the `config.json`, the default logger is set to verbose DEBUG mode.
-    """
-
     def __init__(self):
         super().__init__()
+        self._writer_cache = dict()
 
     def run(self):
-        """
-        Main execution code
-        """
-
-        # ####### EXAMPLE TO REMOVE
-        # check for missing configuration parameters
         self.validate_configuration_parameters(REQUIRED_PARAMETERS)
         self.validate_image_parameters(REQUIRED_IMAGE_PARS)
         params = self.configuration.parameters
-        # Access parameters in data/config.json
-        if params.get(KEY_PRINT_HELLO):
-            logging.info("Hello World")
 
-        # get last state data/in/state.json from previous run
-        previous_state = self.get_state_file()
-        logging.info(previous_state.get('some_state_parameter'))
+        continue_on_fail = params.get(KEY_CONTINUE_ON_FAIL, True)
 
-        # Create output table (Tabledefinition - just metadata)
-        table = self.create_out_table_definition('output.csv', incremental=True, primary_key=['timestamp'])
+        start_date, end_date = dutils.parse_datetime_interval(params.get(KEY_DATE_FROM),
+                                                              params.get(KEY_DATE_TO))
 
-        # get file path of the table (data/out/tables/Features.csv)
-        out_table_path = table.full_path
-        logging.info(out_table_path)
+        intervals = dutils.split_dates_to_chunks(start_date,
+                                                 end_date,
+                                                 intv=30,
+                                                 strformat='%Y-%m-%d')
 
-        # DO whatever and save into out_table_path
-        with open(table.full_path, mode='wt', encoding='utf-8', newline='') as out_file:
-            writer = csv.DictWriter(out_file, fieldnames=['timestamp'])
-            writer.writeheader()
-            writer.writerow({"timestamp": datetime.now().isoformat()})
+        endpoints_to_fetch = params.get(KEY_ENDPOINTS)
 
-        # Save table manifest (output.csv.manifest) from the tabledefinition
-        self.write_manifest(table)
+        client = CepsClient()
+        tables = []
 
-        # Write new state - will be available next run
-        self.write_state_file({"some_state_parameter": "value"})
+        for endpoint in endpoints_to_fetch:
 
-        # ####### EXAMPLE TO REMOVE END
+            endpoint_name = endpoint.get(KEY_ENDPOINT_NAME)
+            logging.info(f"Fetching {endpoint_name} data")
+            out_table = self.create_out_table_definition(f'{endpoint_name}.csv',
+                                                         incremental=True, enclosure="")
+            if endpoint_name in ["CrossborderPowerFlows", "Generation", "GenerationPlan", "GenerationPlan", "Load",
+                                 "RegulationEnergy", "RegulationEnergyB"]:
+                out_table.primary_key = ["date"]
+            elif endpoint_name in ["OdhadovanaCenaOdchylky", "OfferPrices"]:
+                out_table.primary_key = ["hour", "date"]
+
+            tables.append(out_table)
+
+            writer = self._get_writer_from_cache(out_table)
+            for interval in intervals:
+                logging.info(
+                    f"Fetching {endpoint_name} data for interval {interval['start_date']} to {interval['end_date']}")
+                try:
+                    result = client.get_data(endpoint.get(KEY_ENDPOINT_NAME),
+                                             interval["start_date"],
+                                             interval["end_date"],
+                                             granularity=endpoint.get(KEY_ENDPOINT_GRANULARITY),
+                                             function=endpoint.get(KEY_ENDPOINT_FUNCTION, "AVG"),
+                                             version="RT")
+                    writer.writerows(result)
+                except CepsClientException as ceps_exc:
+                    if continue_on_fail:
+                        logging.warning(ceps_exc)
+                    else:
+                        raise UserException(ceps_exc) from ceps_exc
+
+        self._close_writers()
+        self.write_manifests(tables)
+
+    def _get_writer_from_cache(self, out_table):
+        if not self._writer_cache.get(out_table.name):
+            # init writer if not in cache
+            self._writer_cache[out_table.name] = CachedOrthogonalDictWriter(out_table.full_path,
+                                                                            out_table.primary_key.copy(),
+                                                                            temp_directory=tempfile.mkdtemp())
+            self._writer_cache[out_table.name].writeheader()
+
+        return self._writer_cache[out_table.name]
+
+    def _close_writers(self):
+        for wr in self._writer_cache.values():
+            wr.close()
 
 
-"""
-        Main entrypoint
-"""
 if __name__ == "__main__":
     try:
         comp = Component()
