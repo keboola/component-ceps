@@ -1,1 +1,1 @@
-f
+This component enables you to extract publicly available data from the Ceps API.

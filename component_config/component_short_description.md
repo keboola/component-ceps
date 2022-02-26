@@ -1,1 +1,1 @@
-f
+ČEPS, a.s. is a company providing operation of the electricity transmission system in the Czech Republic

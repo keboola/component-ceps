@@ -1,57 +1,83 @@
 CEPS Extractor
 =============
 
-Description
+ČEPS, a.s. is a company providing operation of the electricity transmission system in the Czech Republic
+
+This component enables you to extract publicly available data from the CEPS API.
 
 **Table of contents:**
 
 [TOC]
 
-Functionality notes
-===================
-
-Prerequisites
-=============
-
-Get the API token, register application, etc.
-
-Features
-========
-
-| **Feature**             | **Note**                                      |
-|-------------------------|-----------------------------------------------|
-| Generic UI form         | Dynamic UI form                               |
-| Row Based configuration | Allows structuring the configuration in rows. |
-| oAuth                   | oAuth authentication enabled                  |
-| Incremental loading     | Allows fetching data in new increments.       |
-| Backfill mode           | Support for seamless backfill setup.          |
-| Date range filter       | Specify date range.                           |
-
-Supported endpoints
-===================
-
-If you need more endpoints, please submit your request to
-[ideas.keboola.com](https://ideas.keboola.com/)
-
 Configuration
 =============
 
-Param 1
--------
+##Person
+ - Endpoints (endpoints) - [OPT] description
 
-Param 2
--------
+
+
+
+Sample Configuration
+=============
+```json
+{
+    "parameters": {
+        "date_from": "2021-01-01",
+        "date_to": "2021-05-01",
+        "endpoints": [
+            {
+                "endpoint_name": "CrossborderPowerFlows",
+                "granularity": "MI"
+            },
+            {
+                "endpoint_name": "Generation",
+                "granularity": "HR"
+            },
+            {
+                "endpoint_name": "GenerationPlan",
+                "granularity": "HR"
+            },
+            {
+                "endpoint_name": "GenerationRES",
+                "granularity": "MI"
+            },
+            {
+                "endpoint_name": "Load",
+                "granularity": "MI"
+            },
+            {
+                "endpoint_name": "OdhadovanaCenaOdchylky",
+                "granularity": "None"
+            },
+            {
+                "endpoint_name": "OfferPrices",
+                "granularity": "None"
+            },
+            {
+                "endpoint_name": "RegulationEnergy",
+                "granularity": "MI"
+            },
+            {
+                "endpoint_name": "RegulationEnergyB",
+                "granularity": "MI"
+            }
+        ]
+    },
+    "action": "run"
+}
+```
 
 Output
 ======
 
-List of tables, foreign keys, schema.
+Each data is output as a single csv File as incremental.
 
 Development
 -----------
 
-If required, change local data folder (the `CUSTOM_FOLDER` placeholder) path to
-your custom path in the `docker-compose.yml` file:
+If required, change local data folder (the `CUSTOM_FOLDER` placeholder) path to your custom path in
+the `docker-compose.yml` file:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     volumes:
@@ -59,12 +85,9 @@ your custom path in the `docker-compose.yml` file:
       - ./CUSTOM_FOLDER:/data
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Clone this repository, init the workspace and run the component with following
-command:
+Clone this repository, init the workspace and run the component with following command:
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-git clone https://bitbucket.org/kds_consulting_team/kds-team.ex-ceps/src/master/ kds-team.ex-ceps
-cd kds-team.ex-ceps
 docker-compose build
 docker-compose run --rm dev
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -79,5 +102,4 @@ Integration
 ===========
 
 For information about deployment and integration with KBC, please refer to the
-[deployment section of developers
-documentation](https://developers.keboola.com/extend/component/deployment/)
+[deployment section of developers documentation](https://developers.keboola.com/extend/component/deployment/)
