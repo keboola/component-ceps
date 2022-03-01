@@ -32,7 +32,7 @@ class CachedOrthogonalDictWriter:
     """
 
     def __init__(self, file_path, fieldnames, temp_directory=None, dialect="excel", buffering=io.DEFAULT_BUFFER_SIZE,
-                 *args, **kwds):
+                 table_name="", *args, **kwds):
         """
 
         :param file_path: result file path
@@ -46,6 +46,7 @@ class CachedOrthogonalDictWriter:
 
         self.result_path = file_path
         self.fieldnames = fieldnames
+        self.table_name = table_name
         # global writer properties
         self.dialect = dialect
         self.args = args

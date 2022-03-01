@@ -15,6 +15,8 @@ KEY_ENDPOINT_NAME = "endpoint_name"
 KEY_ENDPOINT_GRANULARITY = "granularity"
 KEY_CONTINUE_ON_FAIL = "continue_on_fail"
 
+KEY_STATE_ENDPOINT_COLUMNS = "endpoint_columns"
+
 # not implemented in UI, for case of further implementation
 KEY_ENDPOINT_FUNCTION = "function"
 
@@ -37,6 +39,11 @@ class Component(ComponentBase):
         self.validate_configuration_parameters(REQUIRED_PARAMETERS)
         self.validate_image_parameters(REQUIRED_IMAGE_PARS)
         params = self.configuration.parameters
+        state = self.get_state_file()
+
+        endpoint_columns = state.get(KEY_STATE_ENDPOINT_COLUMNS)
+        if not endpoint_columns:
+            endpoint_columns = {}
 
         continue_on_fail = params.get(KEY_CONTINUE_ON_FAIL, True)
 
@@ -47,21 +54,25 @@ class Component(ComponentBase):
         client = CepsClient()
 
         for endpoint in endpoints_to_fetch:
-            self.process_endpoint(endpoint, intervals, client, continue_on_fail)
+            self.process_endpoint(endpoint, intervals, client, continue_on_fail, endpoint_columns)
 
+        new_state = self.update_state()
         self._close_writers()
         self.write_manifests(self.tables)
+        self.write_state_file(new_state)
 
-    def process_endpoint(self, endpoint, intervals, client, continue_on_fail):
+    def process_endpoint(self, endpoint, intervals, client, continue_on_fail, endpoint_columns):
         endpoint_name = endpoint.get(KEY_ENDPOINT_NAME)
         logging.info(f"Fetching {endpoint_name} data")
+
+        fieldnames = endpoint_columns.get(endpoint_name, [])
 
         out_table = self.create_out_table_definition(f'{endpoint_name}.csv', incremental=True, enclosure="")
         out_table.primary_key = self.get_endpoint_p_keys(endpoint_name)
 
         self.tables.append(out_table)
 
-        writer = self._get_writer_from_cache(out_table)
+        writer = self._get_writer_from_cache(out_table, fieldnames)
         for interval in intervals:
             self.process_interval(endpoint_name, interval, endpoint, client, writer, continue_on_fail)
 
@@ -91,12 +102,13 @@ class Component(ComponentBase):
             else:
                 raise UserException(ceps_exc) from ceps_exc
 
-    def _get_writer_from_cache(self, out_table):
+    def _get_writer_from_cache(self, out_table, fieldnames):
         if not self._writer_cache.get(out_table.name):
             # init writer if not in cache
             self._writer_cache[out_table.name] = CachedOrthogonalDictWriter(out_table.full_path,
-                                                                            out_table.primary_key.copy(),
-                                                                            temp_directory=tempfile.mkdtemp())
+                                                                            fieldnames,
+                                                                            temp_directory=tempfile.mkdtemp(),
+                                                                            table_name=out_table.name)
             self._writer_cache[out_table.name].writeheader()
 
         return self._writer_cache[out_table.name]
@@ -104,6 +116,18 @@ class Component(ComponentBase):
     def _close_writers(self):
         for wr in self._writer_cache.values():
             wr.close()
+
+    def update_state(self):
+        new_state = {}
+        for wr in self._writer_cache.values():
+            table_name = wr.table_name.replace(".csv", "")
+            fieldnames = wr.fieldnames
+            if new_state.get(table_name):
+                current_fieldnames = new_state.get(table_name)
+                new_state[table_name] = set(current_fieldnames + fieldnames)
+            else:
+                new_state[table_name] = fieldnames
+        return {KEY_STATE_ENDPOINT_COLUMNS: new_state}
 
     @staticmethod
     def get_date_intervals(params):
