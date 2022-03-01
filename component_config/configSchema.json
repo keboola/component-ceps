@@ -7,14 +7,12 @@
       "type": "string",
       "title": "Date from",
       "description": "Start date of the data to be fetched eg. 3 days ago or exact date 2021-01-01",
-      "default": "1 month ago",
       "propertyOrder": 10
     },
     "date_to": {
       "title": "Date to",
       "type": "string",
       "description": "End date of the data to be fetched eg. now or exact date 2021-02-01",
-      "default": "now",
       "propertyOrder": 20
     },
     "endpoints": {
