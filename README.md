@@ -12,7 +12,8 @@ This component enables you to extract publicly available data from the CEPS API.
 Configuration
 =============
 
-##CEPS data source Configuration
+## CEPS data source Configuration
+
  - Date from (date_from) - [REQ] Date from which to start fetching data e.g. 3 days ago or exact date 2021-01-01
  - Date to (date_to) - [REQ] Date to which data fetching should be performed e.g. 3 days ago or exact date 2021-01-01
  - Endpoints (endpoints) - [REQ] Select list of endpoints and their granularity
