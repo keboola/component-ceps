@@ -1,6 +1,7 @@
 import logging
 import warnings
 import json
+import os
 from ceps import CepsClient, CepsClientException
 from keboola.component.base import ComponentBase
 from keboola.component.exceptions import UserException
@@ -144,7 +145,9 @@ class Component(ComponentBase):
 
     @staticmethod
     def get_endpoint_defintion():
-        with open("ceps/endpoint_columns.json", "r") as json_file:
+        dirname = os.path.dirname(__file__)
+        filename = os.path.join(dirname, 'ceps/endpoint_columns.json')
+        with open(filename, "r") as json_file:
             return json.load(json_file)
 
 
