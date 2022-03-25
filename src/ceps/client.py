@@ -116,6 +116,8 @@ class CepsClient:
                 add_date = False
             data = self.replace_fieldnames(data, field_names, add_date)
             data = self.add_granularity(granularity, data)
+            if endpoint == "OdhadovanaCenaOdchylky":
+                data = self.add_index(data)
         except AttributeError as att_exc:
             raise CepsClientException(
                 f"No data returned for {endpoint} with request {request_data}. "
@@ -155,4 +157,9 @@ class CepsClient:
     def add_granularity(granularity, data):
         for i, d in enumerate(data):
             data[i]["granularity"] = granularity
+        return data
+
+    def add_index(self, data):
+        for i, d in enumerate(data):
+            data[i]["ordered_index"] = i
         return data

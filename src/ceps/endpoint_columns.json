@@ -59,6 +59,7 @@
     "OdhadovanaCenaOdchylky": [
       "date",
       "hour",
+      "ordered_index",
       "estimated_price_kmwh",
       "granularity"
     ],
