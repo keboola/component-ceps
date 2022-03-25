@@ -1,0 +1,96 @@
+{
+  "endpoint_columns": {
+    "OfferPrices": [
+      "date",
+      "hour",
+      "unit",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "granularity"
+    ],
+    "Generation": [
+      "date",
+      "wpp_mw",
+      "npp_mw",
+      "pvpp_mw",
+      "ccgt_mw",
+      "altpp_mw",
+      "pspp_mw",
+      "hpp_mw",
+      "appp_mw",
+      "tpp_mw",
+      "granularity"
+    ],
+    "GenerationPlan": [
+      "date",
+      "generation_plan_mw",
+      "granularity"
+    ],
+    "GenerationRES": [
+      "date",
+      "wpp_mw",
+      "pvpp_mw",
+      "granularity"
+    ],
+    "Load": [
+      "date",
+      "load_including_pumping_mw",
+      "load_mw",
+      "granularity"
+    ],
+    "OdhadovanaCenaOdchylky": [
+      "date",
+      "hour",
+      "estimated_price_kmwh",
+      "granularity"
+    ],
+    "RegulationEnergy": [
+      "date",
+      "sc_gcc_sc_mw",
+      "mr5_mr15_mr30_mw",
+      "bm_mw",
+      "mr15_ru30_mw",
+      "international_re_mw",
+      "granularity"
+    ],
+    "RegulationEnergyB": [
+      "date",
+      "ostatn_operativn_vmny_mw",
+      "granularity"
+    ],
+    "CrossborderPowerFlows": [
+      "date",
+      "pse_actual_mw",
+      "50hzt_planned_mw",
+      "ceps_actual_mw",
+      "apg_actual_mw",
+      "tennet_actual_mw",
+      "pse_planned_mw",
+      "50hzt_actual_mw",
+      "tennet_planned_mw",
+      "ceps_planned_mw",
+      "seps_actual_mw",
+      "seps_planned_mw",
+      "apg_planned_mw",
+      "granularity"
+    ]
+  }
+}

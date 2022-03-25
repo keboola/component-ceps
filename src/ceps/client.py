@@ -111,7 +111,11 @@ class CepsClient:
         try:
             data = response_data.get("root").get("data").get("item")
             field_names = response_data.get("root").get("series").get("serie")
-            data = self.replace_fieldnames(data, field_names)
+            add_date = True
+            if endpoint == "OfferPrices":
+                add_date = False
+            data = self.replace_fieldnames(data, field_names, add_date)
+            data = self.add_granularity(granularity, data)
         except AttributeError as att_exc:
             raise CepsClientException(
                 f"No data returned for {endpoint} with request {request_data}. "
@@ -126,8 +130,8 @@ class CepsClient:
         response_data = xmltodict.parse(xml)
         return response_data
 
-    def replace_fieldnames(self, data, field_names):
-        field_names_dict = self.process_fieldnames(field_names)
+    def replace_fieldnames(self, data, field_names, add_date):
+        field_names_dict = self.process_fieldnames(field_names, add_date)
         for i, datum in enumerate(data):
             for field_name in field_names_dict:
                 if field_name in data[i]:
@@ -135,13 +139,20 @@ class CepsClient:
         return data
 
     @staticmethod
-    def process_fieldnames(field_names):
+    def process_fieldnames(field_names, add_date):
         field_names_dict = {}
         header_normalizer = DefaultHeaderNormalizer()
         if not isinstance(field_names, List):
             field_names = [field_names]
+        if add_date:
+            field_names_dict["@date"] = "date"
         for field_name in field_names:
             field_names_dict[f"@{field_name['@id']}"] = \
                 header_normalizer._normalize_column_name(field_name["@name"]).lower()
-        field_names_dict["@date"] = "date"
         return field_names_dict
+
+    @staticmethod
+    def add_granularity(granularity, data):
+        for i, d in enumerate(data):
+            data[i]["granularity"] = granularity
+        return data

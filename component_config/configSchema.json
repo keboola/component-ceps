@@ -45,7 +45,9 @@
             "type": "string",
             "title": "Granularity",
             "enum": [
+              "DY",
               "HR",
+              "QH",
               "MI",
               "None"
             ],
@@ -60,7 +62,7 @@
         },
         {
           "endpoint_name": "Generation",
-          "granularity": "HR"
+          "granularity": "QH"
         },
         {
           "endpoint_name": "GenerationPlan",
