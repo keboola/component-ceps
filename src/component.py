@@ -87,7 +87,7 @@ class Component(ComponentBase):
         elif endpoint_name in ["OdhadovanaCenaOdchylky"]:
             return ["hour", "date"]
         elif endpoint_name in ["OfferPrices"]:
-            return ["hour", "date","unit"]
+            return ["hour", "date", "unit"]
 
     @staticmethod
     def process_interval(endpoint_name, interval, endpoint, client, writer, continue_on_fail):
