@@ -74,7 +74,10 @@ class Component(ComponentBase):
 
         self.tables.append(out_table)
 
-        writer = self._get_writer_from_cache(out_table, endpoint_columns)
+        try:
+            writer = self._get_writer_from_cache(out_table, endpoint_columns)
+        except TypeError as type_err:
+            raise UserException(f"Endpoint '{endpoint_name}' is not implemented") from type_err
 
         for interval in intervals:
             self.process_interval(endpoint_name, interval, endpoint, client, writer, continue_on_fail)
