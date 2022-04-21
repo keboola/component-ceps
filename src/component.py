@@ -141,8 +141,8 @@ class Component(ComponentBase):
     def get_date_intervals(params, day_intervals=False):
         try:
             start_date, end_date = dutils.parse_datetime_interval(params.get(KEY_DATE_FROM), params.get(KEY_DATE_TO))
-        except TypeError:
-            raise UserException("Failed to parse date to and from. Make sure the input is valid")
+        except (TypeError, ValueError) as parse_err:
+            raise UserException("Failed to parse date to and from. Make sure the input is valid") from parse_err
 
         if day_intervals:
             return dutils.split_dates_to_chunks(start_date, end_date, intv=1, strformat='%Y-%m-%d')
