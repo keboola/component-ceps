@@ -35,9 +35,7 @@
               "GenerationRES",
               "Load",
               "OdhadovanaCenaOdchylky",
-              "OfferPrices",
-              "RegulationEnergy",
-              "RegulationEnergyB"
+              "OfferPrices"
             ],
             "default": "GenerationPlan"
           },
@@ -83,14 +81,6 @@
         {
           "endpoint_name": "OfferPrices",
           "granularity": "None"
-        },
-        {
-          "endpoint_name": "RegulationEnergy",
-          "granularity": "MI"
-        },
-        {
-          "endpoint_name": "RegulationEnergyB",
-          "granularity": "MI"
         }
       ]
     }
