@@ -4,7 +4,7 @@ keboola.http-client==1.0.0
 mock==4.0.3
 freezegun==1.1.0
 zeep==4.1.0
-requests==2.27.1
+requests==2.32.2
 platformdirs==2.5.0
 pyarrow==7.0.0
 pygelf==0.4.2
