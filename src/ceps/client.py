@@ -162,7 +162,7 @@ class CepsClient:
             normalized_name = header_normalizer._normalize_column_name(field_name["@name"]).lower()
             # Apply custom column name overrides if defined
             normalized_name = COLUMN_NAME_OVERRIDES.get(normalized_name, normalized_name)
-            field_names_dict[f"@{field_name['@id']}"] = normalized_name
+            field_names_dict["@" + field_name["@id"]] = normalized_name
         return field_names_dict
 
     @staticmethod
