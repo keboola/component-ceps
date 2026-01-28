@@ -83,12 +83,7 @@ class CepsClient:
                                             version=version, add_para1=False)
         elif endpoint in ["NepredvidatelneOdmitnuteNabidky", "OdhadovanaCenaOdchylky", "OfferPrices"]:
             return self.get_timeseries_data(endpoint, date_start, date_end, add_para1=False)
-
-        elif endpoint in ["AktualniSystemovaOdchylkaCR"]:
-            return self.get_timeseries_data(endpoint, date_start, date_end, granularity=granularity, function=function,
-                                            add_para1=False)
-
-        elif endpoint in ["CrossborderPowerFlows", "GenerationPlan", "Load"]:
+        elif endpoint in ["AktualniSystemovaOdchylkaCR", "CrossborderPowerFlows", "GenerationPlan", "Load"]:
             return self.get_timeseries_data(endpoint, date_start, date_end, granularity=granularity, function=function,
                                             version=version, add_para1=False)
         else:
@@ -160,7 +155,6 @@ class CepsClient:
             field_names_dict["@date"] = "date"
         for field_name in field_names:
             normalized_name = header_normalizer._normalize_column_name(field_name["@name"]).lower()
-            # Apply custom column name overrides if defined
             normalized_name = COLUMN_NAME_OVERRIDES.get(normalized_name, normalized_name)
             field_names_dict["@" + field_name["@id"]] = normalized_name
         return field_names_dict
