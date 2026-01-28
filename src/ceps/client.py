@@ -78,12 +78,12 @@ class CepsClient:
     def get_data(self, endpoint, date_start, date_end, granularity="HR", function="AVG", version="RT"):
         if endpoint == "DataVersion":
             return self.get_data_version(endpoint)
-        elif endpoint in ["RegulationEnergy", "RegulationEnergyB"]:
-            return self.get_timeseries_data(endpoint, date_start, date_end, granularity=granularity, function=function,
-                                            version=version, add_para1=False)
         elif endpoint in ["NepredvidatelneOdmitnuteNabidky", "OdhadovanaCenaOdchylky", "OfferPrices"]:
             return self.get_timeseries_data(endpoint, date_start, date_end, add_para1=False)
-        elif endpoint in ["AktualniSystemovaOdchylkaCR", "CrossborderPowerFlows", "GenerationPlan", "Load"]:
+        elif endpoint in ["AktualniSystemovaOdchylkaCR"]:
+            return self.get_timeseries_data(endpoint, date_start, date_end, granularity=granularity, function=function,
+                                            add_para1=False)
+        elif endpoint in ["RegulationEnergy", "RegulationEnergyB", "CrossborderPowerFlows", "GenerationPlan", "Load"]:
             return self.get_timeseries_data(endpoint, date_start, date_end, granularity=granularity, function=function,
                                             version=version, add_para1=False)
         else:
