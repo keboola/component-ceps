@@ -28,15 +28,16 @@
           "endpoint_name": {
             "type": "string",
             "title": "Endpoint name",
-            "enum": [
-              "CrossborderPowerFlows",
-              "Generation",
-              "GenerationPlan",
-              "GenerationRES",
-              "Load",
-              "OdhadovanaCenaOdchylky",
-              "OfferPrices"
-            ],
+                        "enum": [
+                          "AktualniSystemovaOdchylkaCR",
+                          "CrossborderPowerFlows",
+                          "Generation",
+                          "GenerationPlan",
+                          "GenerationRES",
+                          "Load",
+                          "OdhadovanaCenaOdchylky",
+                          "OfferPrices"
+                        ],
             "default": "GenerationPlan"
           },
           "granularity": {
