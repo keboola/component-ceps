@@ -93,10 +93,10 @@
       "apg_planned_mw",
       "granularity"
     ],
-    "AktualniSystemovaOdchylkaCR": [
-      "date",
-      "aktualni_odchylka_mw",
-      "granularity"
-    ]
+        "AktualniSystemovaOdchylkaCR": [
+          "date",
+          "aktuln_odchylka_mw",
+          "granularity"
+        ]
   }
 }
