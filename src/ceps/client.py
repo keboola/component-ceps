@@ -78,6 +78,10 @@ class CepsClient:
         elif endpoint in ["NepredvidatelneOdmitnuteNabidky", "OdhadovanaCenaOdchylky", "OfferPrices"]:
             return self.get_timeseries_data(endpoint, date_start, date_end, add_para1=False)
 
+        elif endpoint in ["AktualniSystemovaOdchylkaCR"]:
+            return self.get_timeseries_data(endpoint, date_start, date_end, granularity=granularity, function=function,
+                                            add_para1=False)
+
         elif endpoint in ["CrossborderPowerFlows", "GenerationPlan", "Load"]:
             return self.get_timeseries_data(endpoint, date_start, date_end, granularity=granularity, function=function,
                                             version=version, add_para1=False)

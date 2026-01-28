@@ -92,6 +92,11 @@
       "seps_planned_mw",
       "apg_planned_mw",
       "granularity"
+    ],
+    "AktualniSystemovaOdchylkaCR": [
+      "date",
+      "aktualni_odchylka_mw",
+      "granularity"
     ]
   }
 }

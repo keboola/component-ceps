@@ -64,6 +64,10 @@ Sample Configuration
             {
                 "endpoint_name": "RegulationEnergyB",
                 "granularity": "MI"
+            },
+            {
+                "endpoint_name": "AktualniSystemovaOdchylkaCR",
+                "granularity": "MI"
             }
         ]
     },
