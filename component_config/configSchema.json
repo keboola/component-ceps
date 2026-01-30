@@ -29,6 +29,7 @@
             "type": "string",
             "title": "Endpoint name",
             "enum": [
+              "AktualniSystemovaOdchylkaCR",
               "CrossborderPowerFlows",
               "Generation",
               "GenerationPlan",

@@ -16,6 +16,12 @@ WSDL_URL = 'https://www.ceps.cz/_layouts/CepsData.asmx?wsdl'
 
 MAX_RETRIES = 10
 
+# Custom column name mappings to override header normalizer output
+# The header normalizer drops diacritics incorrectly (e.g., 'í' -> '' instead of 'i')
+COLUMN_NAME_OVERRIDES = {
+    "aktuln_odchylka_mw": "aktualni_odchylka_mw"
+}
+
 
 class CepsClientException(Exception):
     pass
@@ -72,13 +78,12 @@ class CepsClient:
     def get_data(self, endpoint, date_start, date_end, granularity="HR", function="AVG", version="RT"):
         if endpoint == "DataVersion":
             return self.get_data_version(endpoint)
-        elif endpoint in ["RegulationEnergy", "RegulationEnergyB"]:
-            return self.get_timeseries_data(endpoint, date_start, date_end, granularity=granularity, function=function,
-                                            version=version, add_para1=False)
         elif endpoint in ["NepredvidatelneOdmitnuteNabidky", "OdhadovanaCenaOdchylky", "OfferPrices"]:
             return self.get_timeseries_data(endpoint, date_start, date_end, add_para1=False)
-
-        elif endpoint in ["CrossborderPowerFlows", "GenerationPlan", "Load"]:
+        elif endpoint in ["AktualniSystemovaOdchylkaCR"]:
+            return self.get_timeseries_data(endpoint, date_start, date_end, granularity=granularity, function=function,
+                                            add_para1=False)
+        elif endpoint in ["RegulationEnergy", "RegulationEnergyB", "CrossborderPowerFlows", "GenerationPlan", "Load"]:
             return self.get_timeseries_data(endpoint, date_start, date_end, granularity=granularity, function=function,
                                             version=version, add_para1=False)
         else:
@@ -149,8 +154,9 @@ class CepsClient:
         if add_date:
             field_names_dict["@date"] = "date"
         for field_name in field_names:
-            field_names_dict[f"@{field_name['@id']}"] = \
-                header_normalizer._normalize_column_name(field_name["@name"]).lower()
+            normalized_name = header_normalizer._normalize_column_name(field_name["@name"]).lower()
+            normalized_name = COLUMN_NAME_OVERRIDES.get(normalized_name, normalized_name)
+            field_names_dict["@" + field_name["@id"]] = normalized_name
         return field_names_dict
 
     @staticmethod
