@@ -84,7 +84,7 @@ class Component(ComponentBase):
 
     @staticmethod
     def get_endpoint_p_keys(endpoint_name):
-        if endpoint_name in ["CrossborderPowerFlows", "Generation", "GenerationPlan", "GenerationPlan", "Load",
+        if endpoint_name in ["CrossborderPowerFlows", "Generation", "GenerationPlan", "Load",
                              "RegulationEnergy", "RegulationEnergyB", "AktualniSystemovaOdchylkaCR"]:
             return ["date"]
         elif endpoint_name in ["OdhadovanaCenaOdchylky"]:
