@@ -1,0 +1,12 @@
+{
+  "incremental": true,
+  "enclosure": "",
+  "delimiter": ",",
+  "metadata": [],
+  "column_metadata": {},
+  "primary_key": [
+    "hour",
+    "date",
+    "unit"
+  ]
+}

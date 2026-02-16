@@ -1,0 +1,29 @@
+{
+  "parameters": {
+    "date_from": "2026-01-01",
+    "date_to": "2026-02-01",
+    "continue_on_fail": true,
+    "endpoints": [
+      {
+        "endpoint_name": "AktualniSystemovaOdchylkaCR",
+        "granularity": "DY"
+      },
+      {
+        "endpoint_name": "AktualniSystemovaOdchylkaCR",
+        "granularity": "HR"
+      },
+      {
+        "endpoint_name": "AktualniSystemovaOdchylkaCR",
+        "granularity": "QH"
+      },
+      {
+        "endpoint_name": "AktualniSystemovaOdchylkaCR",
+        "granularity": "MI"
+      },
+      {
+        "endpoint_name": "AktualniSystemovaOdchylkaCR",
+        "granularity": "None"
+      }
+    ]
+  }
+}

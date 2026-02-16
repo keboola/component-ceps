@@ -1,0 +1,29 @@
+{
+  "parameters": {
+    "date_from": "2026-01-01",
+    "date_to": "2026-02-01",
+    "continue_on_fail": true,
+    "endpoints": [
+      {
+        "endpoint_name": "GenerationRES",
+        "granularity": "DY"
+      },
+      {
+        "endpoint_name": "GenerationRES",
+        "granularity": "HR"
+      },
+      {
+        "endpoint_name": "GenerationRES",
+        "granularity": "QH"
+      },
+      {
+        "endpoint_name": "GenerationRES",
+        "granularity": "MI"
+      },
+      {
+        "endpoint_name": "GenerationRES",
+        "granularity": "None"
+      }
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "OdhadovanaCenaOdchylky.csv": {
+      "columns": [
+        "date",
+        "hour",
+        "ordered_index",
+        "estimated_price_kmwh",
+        "granularity",
+        "interval"
+      ],
+      "hash": "sha256:80fa79b2d863a90aa4809393867040ac4672652f70d9dd9bbb512a4d9724c886",
+      "row_count": 14891,
+      "size_bytes": 757401
+    },
+    "OdhadovanaCenaOdchylky.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:71d70f4ab5e5b1cec24145191b48ec61c6fdcab785adbfea878ec28304be9da8",
+      "row_count": null,
+      "size_bytes": 155
+    }
+  },
+  "version": "1.0"
+}
