@@ -19,4 +19,4 @@ tzdata==2021.5
 tzlocal==4.1
 urllib3==1.26.8
 xmltodict==0.12.0
-datadirtest[vcr] @ git+https://github.com/keboola/datadirtest.git@feature/vcr-testing
+datadirtest @ git+https://github.com/keboola/datadirtest.git@feature/vcr-testing
