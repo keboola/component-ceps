@@ -49,9 +49,12 @@ LARGE_CONFIG = {
 
 def make_runner(data_dir: str):
     """Return a zero-arg callable that runs the component once."""
+    _src = str(Path(__file__).parent.parent / "src")
 
     def _run():
         os.environ["KBC_DATADIR"] = data_dir
+        if _src not in sys.path:
+            sys.path.insert(0, _src)
         from component import Component  # noqa — local component module
 
         comp = Component()
@@ -61,10 +64,8 @@ def make_runner(data_dir: str):
 
 
 def peak_rss_mb() -> float:
-    # macOS returns KB, Linux returns bytes
+    # Both macOS and Linux return bytes
     raw = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss
-    if sys.platform == "darwin":
-        return raw / 1024
     return raw / (1024 * 1024)
 
 

@@ -2,20 +2,20 @@ FROM python:3.11-slim
 ENV PYTHONIOENCODING utf-8
 
 COPY /src /code/src/
-COPY /tests /code/tests/
 COPY /scripts /code/scripts/
-COPY requirements.txt /code/requirements.txt
+COPY pyproject.toml /code/pyproject.toml
+COPY uv.lock /code/uv.lock
 COPY flake8.cfg /code/flake8.cfg
 COPY deploy.sh /code/deploy.sh
 
-# install gcc and git - gcc for building packages, git for git-based pip dependencies (datadirtest)
-RUN apt-get update && apt-get install -y build-essential git && rm -rf /var/lib/apt/lists/*
+# install gcc and git — gcc for building native extensions, git for VCS dependencies
+RUN apt-get update && apt-get install -y build-essential git curl && rm -rf /var/lib/apt/lists/*
 
-RUN pip install flake8
-
-RUN pip install -r /code/requirements.txt
+RUN curl -LsSf https://astral.sh/uv/install.sh | sh
+ENV PATH="/root/.local/bin:$PATH"
 
 WORKDIR /code/
 
+RUN uv sync --frozen --no-dev
 
-CMD ["python", "-u", "/code/src/component.py"]
+CMD ["uv", "run", "python", "-u", "/code/src/component.py"]
