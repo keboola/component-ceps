@@ -15,9 +15,9 @@
     },
     "GenerationRES.csv.manifest": {
       "columns": null,
-      "hash": "sha256:7b285fd265854ded1921928f89b75a900adee4d8755403d1d1f6e1a636f6ee72",
+      "hash": "sha256:39db337a4c3c2a539058bf73382f0796b587a21fc4e0559b190a747292a81c42",
       "row_count": null,
-      "size_bytes": 108
+      "size_bytes": 722
     }
   },
   "version": "1.0"

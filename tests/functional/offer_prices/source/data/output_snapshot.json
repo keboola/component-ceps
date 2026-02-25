@@ -35,9 +35,9 @@
     },
     "OfferPrices.csv.manifest": {
       "columns": null,
-      "hash": "sha256:102603708879640e4c22f324ff6d62487fc9508540c9ccf853902a007e7bc944",
+      "hash": "sha256:90cc78a6d34d8e5f6e5347d2af2d1df67030b5ed7ed178b3a046eaff199f3d5b",
       "row_count": null,
-      "size_bytes": 167
+      "size_bytes": 3609
     }
   },
   "version": "1.0"

@@ -14,9 +14,9 @@
     },
     "AktualniSystemovaOdchylkaCR.csv.manifest": {
       "columns": null,
-      "hash": "sha256:1434c732e5ce6252d0fb332e297f40d58c3a9afa5caec208313f098c83c72e7b",
+      "hash": "sha256:67373d1dcf2561f2c6a549188b074bc84c149fc11c91a4a7da196044fedb2ec9",
       "row_count": null,
-      "size_bytes": 143
+      "size_bytes": 617
     }
   },
   "version": "1.0"

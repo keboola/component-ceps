@@ -17,9 +17,9 @@
     },
     "OdhadovanaCenaOdchylky.csv.manifest": {
       "columns": null,
-      "hash": "sha256:71d70f4ab5e5b1cec24145191b48ec61c6fdcab785adbfea878ec28304be9da8",
+      "hash": "sha256:78aa0a2094ae196e35ab7df04833218f078534acaaedc44687164141ffb85939",
       "row_count": null,
-      "size_bytes": 155
+      "size_bytes": 1086
     }
   },
   "version": "1.0"
