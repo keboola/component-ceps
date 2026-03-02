@@ -3,7 +3,7 @@ name = "component-ceps"
 version = "0.1.0"
 requires-python = ">=3.11"
 dependencies = [
-    "keboola.component>=1.9.0",
+    "keboola.component>=1.9.2",
     "keboola.utils==1.1.0",
     "keboola.http-client==1.0.0",
     "freezegun>=1.5.5,<2",
@@ -29,8 +29,8 @@ dev = [
     "mock==4.0.3",
     "pytest",
     "flake8",
-    "keboola.datadirtest==2.0.0",
-    "keboola.vcr==0.1.1",
+    "keboola.datadirtest",
+    "keboola.vcr",
 ]
 
 [[tool.uv.index]]
@@ -38,8 +38,12 @@ name = "testpypi"
 url = "https://test.pypi.org/simple/"
 explicit = true
 
+[tool.uv]
+override-dependencies = ["keboola-vcr>=0.0.0"]
+
 [tool.uv.sources]
-"keboola.component" = { index = "testpypi" }
+"keboola.vcr" = { git = "https://github.com/keboola/python-vcr-tests", branch = "feature/logging-capture" }
+"keboola.datadirtest" = { git = "https://github.com/keboola/datadirtest", branch = "feature/vcr-testing" }
 
 [tool.setuptools]
 packages = []

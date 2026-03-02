@@ -1,0 +1,25 @@
+{
+  "exit_code": 2,
+  "logs": [
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No action defined in the configuration, using the default run action."
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching RegulationEnergyB data"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching RegulationEnergyB data for interval 2026-01-01T00:00:00 to 2026-01-16T12:00:00"
+    },
+    {
+      "level": "ERROR",
+      "logger": "root",
+      "message": "Service has no operation 'RegulationEnergyB'\nTraceback (most recent call last):\n  File \"/Users/matyasjirat/VSCodeProjects/Keboola/component-ceps/.venv/lib/python3.12/site-packages/zeep/proxy.py\", line 97, in __getitem__\n    return self._operations[key]\n           ~~~~~~~~~~~~~~~~^^^^^\nKeyError: 'RegulationEnergyB'\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"src/component.py\", line 164, in <module>\n    comp.execute_action()\n  File \"/Users/matyasjirat/VSCodeProjects/Keboola/component-ceps/.venv/lib/python3.12/site-packages/keboola/component/base.py\", line 251, in execute_action\n    return self._do_execute_action()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/matyasjirat/VSCodeProjects/Keboola/component-ceps/.venv/lib/python3.12/site-packages/keboola/component/base.py\", line 265, in _do_execute_action\n    return action_method()\n           ^^^^^^^^^^^^^^^\n  File \"src/component.py\", line 63, in run\n    self.process_endpoint(endpoint, intervals, client, continue_on_fail, endpoint_columns)\n  File \"src/component.py\", line 84, in process_endpoint\n    self.process_interval(endpoint_name, interval, endpoint, client, writer, continue_on_fail)\n  File \"src/component.py\", line 101, in process_interval\n    result = client.get_data(endpoint.get(KEY_ENDPOINT_NAME),\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/matyasjirat/VSCodeProjects/Keboola/component-ceps/src/ceps/client.py\", line 87, in get_data\n    return self.get_timeseries_data(endpoint, date_start, date_end, granularity=granularity, function=function,\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/matyasjirat/VSCodeProjects/Keboola/component-ceps/src/ceps/client.py\", line 108, in get_timeseries_data\n    method_to_call = getattr(self.client.service, endpoint)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/matyasjirat/VSCodeProjects/Keboola/component-ceps/.venv/lib/python3.12/site-packages/zeep/proxy.py\", line 88, in __getattr__\n    return self[key]\n           ~~~~^^^^^\n  File \"/Users/matyasjirat/VSCodeProjects/Keboola/component-ceps/.venv/lib/python3.12/site-packages/zeep/proxy.py\", line 99, in __getitem__\n    raise AttributeError(\"Service has no operation %r\" % key)\nAttributeError: Service has no operation 'RegulationEnergyB'"
+    }
+  ]
+}

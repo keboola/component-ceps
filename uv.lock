@@ -2,6 +2,9 @@ version = 1
 revision = 3
 requires-python = ">=3.11"
 
+[manifest]
+overrides = [{ name = "keboola-vcr", git = "https://github.com/keboola/python-vcr-tests?branch=feature%2Flogging-capture" }]
+
 [[package]]
 name = "attrs"
 version = "25.4.0"
@@ -85,7 +88,7 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "freezegun", specifier = ">=1.5.5,<2" },
-    { name = "keboola-component", specifier = "==1.9.0", index = "https://test.pypi.org/simple/" },
+    { name = "keboola-component", specifier = ">=1.9.2" },
     { name = "keboola-http-client", specifier = "==1.0.0" },
     { name = "keboola-utils", specifier = "==1.1.0" },
     { name = "platformdirs", specifier = "==2.5.0" },
@@ -108,8 +111,8 @@ requires-dist = [
 [package.metadata.requires-dev]
 dev = [
     { name = "flake8" },
-    { name = "keboola-datadirtest", specifier = "==2.0.0" },
-    { name = "keboola-vcr", specifier = "==0.1.1" },
+    { name = "keboola-datadirtest", git = "https://github.com/keboola/datadirtest?branch=feature%2Fvcr-testing" },
+    { name = "keboola-vcr", git = "https://github.com/keboola/python-vcr-tests?branch=feature%2Flogging-capture" },
     { name = "mock", specifier = "==4.0.3" },
     { name = "pytest" },
 ]
@@ -196,28 +199,24 @@ wheels = [
 
 [[package]]
 name = "keboola-component"
-version = "1.9.0"
-source = { registry = "https://test.pypi.org/simple/" }
+version = "1.9.2"
+source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "deprecated" },
     { name = "keboola-vcr" },
     { name = "pygelf" },
-    { name = "pytz" },
 ]
+sdist = { url = "https://files.pythonhosted.org/packages/45/ed/e5c5be36b4bcc3f2677d9fc74458b1c707834755f64eee6e7484c73b6c4f/keboola_component-1.9.2.tar.gz", hash = "sha256:4f36b10644f76e6d6efcc4d1a55efea98efb2c828f385db1902c3d293d7620b5", size = 71923, upload-time = "2026-02-26T15:20:33.223Z" }
 wheels = [
-    { url = "https://test-files.pythonhosted.org/packages/f7/9c/4f13f44a303140ea99442d968f8749befb064f63e19123c53bef76970152/keboola_component-1.9.0-py3-none-any.whl", hash = "sha256:5fb068dc03f5b3a4a09eeb68f8c2075275e7280d48a6e4430f3a537aea54b654", size = 44305, upload-time = "2026-02-25T13:12:28.694Z" },
+    { url = "https://files.pythonhosted.org/packages/a6/1b/3208d3e2e8c87a1f1978f94e51c5dbae9660987b1fa7e3f85dbad76d7525/keboola_component-1.9.2-py3-none-any.whl", hash = "sha256:57cf946180f9666ec6f741dc89850e34d1345801a53f45d806ab35e51c3da939", size = 44298, upload-time = "2026-02-26T15:20:32.032Z" },
 ]
 
 [[package]]
 name = "keboola-datadirtest"
-version = "2.0.0"
-source = { registry = "https://pypi.org/simple" }
+version = "0.0.0"
+source = { git = "https://github.com/keboola/datadirtest?branch=feature%2Fvcr-testing#160415f4dac599cdad85b414500d4b2a86427923" }
 dependencies = [
     { name = "keboola-vcr" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/d0/bb/cc1e646e944aac1788b04d543300308347ed2a351a79a59dd372cf01c0d2/keboola_datadirtest-2.0.0.tar.gz", hash = "sha256:fe2cecefa7da012590cd23b029a7d1a95f93b63872c288d0e45e87395b467758", size = 18144, upload-time = "2026-02-24T13:44:19.209Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/3f/80/3b067eb5d9086518a881cd0f799184eb863b5ff0c3880e9e9cc28cdc82f6/keboola_datadirtest-2.0.0-py3-none-any.whl", hash = "sha256:fc82a9a104574fc3c995543448710598e17268e2e04d5562e664ed0a6cd9283b", size = 21123, upload-time = "2026-02-24T13:44:17.685Z" },
 ]
 
 [[package]]
@@ -247,15 +246,11 @@ wheels = [
 
 [[package]]
 name = "keboola-vcr"
-version = "0.1.1"
-source = { registry = "https://pypi.org/simple" }
+version = "0.0.0"
+source = { git = "https://github.com/keboola/python-vcr-tests?branch=feature%2Flogging-capture#d92b1cd9d2273cb5ae4c8e54a7afad725730e8b3" }
 dependencies = [
     { name = "freezegun" },
     { name = "vcrpy" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/cb/a5/97bf02f746f285b9260c81dbabdbea11ff56a688f952f35def24dfb4b54c/keboola_vcr-0.1.1.tar.gz", hash = "sha256:f7163c8359553fcedb185bdb2d651afd6b47bbb732a5ec49debd5c749edfd288", size = 23678, upload-time = "2026-02-24T15:33:20.185Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/a3/c7/1bd606a733bcb8be8eac1c096ba4c577ebd57651a020cd1f175836cdba4f/keboola_vcr-0.1.1-py3-none-any.whl", hash = "sha256:98a371cba4bb40a192156341cf7b55bbd6f3975acb095c7531ba503de230133f", size = 26454, upload-time = "2026-02-24T15:33:16.769Z" },
 ]
 
 [[package]]

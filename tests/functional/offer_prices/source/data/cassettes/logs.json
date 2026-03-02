@@ -1,0 +1,1585 @@
+{
+  "exit_code": null,
+  "logs": [
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No action defined in the configuration, using the default run action."
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-01 to 2026-01-02"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-01', 'dateTo': '2026-01-02'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-02 to 2026-01-03"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-02', 'dateTo': '2026-01-03'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-03 to 2026-01-04"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-03', 'dateTo': '2026-01-04'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-04 to 2026-01-05"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-04', 'dateTo': '2026-01-05'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-05 to 2026-01-06"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-05', 'dateTo': '2026-01-06'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-06 to 2026-01-07"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-06', 'dateTo': '2026-01-07'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-07 to 2026-01-08"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-07', 'dateTo': '2026-01-08'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-08 to 2026-01-09"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-08', 'dateTo': '2026-01-09'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-09 to 2026-01-10"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-09', 'dateTo': '2026-01-10'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-10 to 2026-01-11"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-10', 'dateTo': '2026-01-11'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-11 to 2026-01-12"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-11', 'dateTo': '2026-01-12'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-12 to 2026-01-13"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-12', 'dateTo': '2026-01-13'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-13 to 2026-01-14"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-13', 'dateTo': '2026-01-14'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-14 to 2026-01-15"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-14', 'dateTo': '2026-01-15'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-15 to 2026-01-16"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-15', 'dateTo': '2026-01-16'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-16 to 2026-01-17"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-16', 'dateTo': '2026-01-17'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-17 to 2026-01-18"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-17', 'dateTo': '2026-01-18'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-18 to 2026-01-19"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-18', 'dateTo': '2026-01-19'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-19 to 2026-01-20"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-19', 'dateTo': '2026-01-20'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-20 to 2026-01-21"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-20', 'dateTo': '2026-01-21'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-21 to 2026-01-22"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-21', 'dateTo': '2026-01-22'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-22 to 2026-01-23"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-22', 'dateTo': '2026-01-23'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-23 to 2026-01-24"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-23', 'dateTo': '2026-01-24'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-24 to 2026-01-25"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-24', 'dateTo': '2026-01-25'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-25 to 2026-01-26"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-25', 'dateTo': '2026-01-26'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-26 to 2026-01-27"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-26', 'dateTo': '2026-01-27'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-27 to 2026-01-28"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-27', 'dateTo': '2026-01-28'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-28 to 2026-01-29"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-28', 'dateTo': '2026-01-29'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-29 to 2026-01-30"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-29', 'dateTo': '2026-01-30'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-30 to 2026-01-31"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-30', 'dateTo': '2026-01-31'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-31 to 2026-02-01"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-31', 'dateTo': '2026-02-01'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-01 to 2026-01-02"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-01', 'dateTo': '2026-01-02'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-02 to 2026-01-03"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-02', 'dateTo': '2026-01-03'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-03 to 2026-01-04"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-03', 'dateTo': '2026-01-04'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-04 to 2026-01-05"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-04', 'dateTo': '2026-01-05'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-05 to 2026-01-06"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-05', 'dateTo': '2026-01-06'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-06 to 2026-01-07"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-06', 'dateTo': '2026-01-07'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-07 to 2026-01-08"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-07', 'dateTo': '2026-01-08'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-08 to 2026-01-09"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-08', 'dateTo': '2026-01-09'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-09 to 2026-01-10"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-09', 'dateTo': '2026-01-10'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-10 to 2026-01-11"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-10', 'dateTo': '2026-01-11'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-11 to 2026-01-12"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-11', 'dateTo': '2026-01-12'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-12 to 2026-01-13"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-12', 'dateTo': '2026-01-13'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-13 to 2026-01-14"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-13', 'dateTo': '2026-01-14'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-14 to 2026-01-15"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-14', 'dateTo': '2026-01-15'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-15 to 2026-01-16"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-15', 'dateTo': '2026-01-16'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-16 to 2026-01-17"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-16', 'dateTo': '2026-01-17'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-17 to 2026-01-18"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-17', 'dateTo': '2026-01-18'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-18 to 2026-01-19"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-18', 'dateTo': '2026-01-19'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-19 to 2026-01-20"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-19', 'dateTo': '2026-01-20'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-20 to 2026-01-21"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-20', 'dateTo': '2026-01-21'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-21 to 2026-01-22"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-21', 'dateTo': '2026-01-22'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-22 to 2026-01-23"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-22', 'dateTo': '2026-01-23'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-23 to 2026-01-24"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-23', 'dateTo': '2026-01-24'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-24 to 2026-01-25"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-24', 'dateTo': '2026-01-25'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-25 to 2026-01-26"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-25', 'dateTo': '2026-01-26'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-26 to 2026-01-27"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-26', 'dateTo': '2026-01-27'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-27 to 2026-01-28"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-27', 'dateTo': '2026-01-28'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-28 to 2026-01-29"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-28', 'dateTo': '2026-01-29'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-29 to 2026-01-30"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-29', 'dateTo': '2026-01-30'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-30 to 2026-01-31"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-30', 'dateTo': '2026-01-31'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-31 to 2026-02-01"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-31', 'dateTo': '2026-02-01'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-01 to 2026-01-02"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-01', 'dateTo': '2026-01-02'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-02 to 2026-01-03"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-02', 'dateTo': '2026-01-03'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-03 to 2026-01-04"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-03', 'dateTo': '2026-01-04'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-04 to 2026-01-05"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-04', 'dateTo': '2026-01-05'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-05 to 2026-01-06"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-05', 'dateTo': '2026-01-06'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-06 to 2026-01-07"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-06', 'dateTo': '2026-01-07'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-07 to 2026-01-08"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-07', 'dateTo': '2026-01-08'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-08 to 2026-01-09"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-08', 'dateTo': '2026-01-09'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-09 to 2026-01-10"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-09', 'dateTo': '2026-01-10'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-10 to 2026-01-11"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-10', 'dateTo': '2026-01-11'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-11 to 2026-01-12"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-11', 'dateTo': '2026-01-12'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-12 to 2026-01-13"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-12', 'dateTo': '2026-01-13'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-13 to 2026-01-14"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-13', 'dateTo': '2026-01-14'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-14 to 2026-01-15"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-14', 'dateTo': '2026-01-15'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-15 to 2026-01-16"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-15', 'dateTo': '2026-01-16'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-16 to 2026-01-17"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-16', 'dateTo': '2026-01-17'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-17 to 2026-01-18"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-17', 'dateTo': '2026-01-18'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-18 to 2026-01-19"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-18', 'dateTo': '2026-01-19'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-19 to 2026-01-20"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-19', 'dateTo': '2026-01-20'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-20 to 2026-01-21"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-20', 'dateTo': '2026-01-21'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-21 to 2026-01-22"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-21', 'dateTo': '2026-01-22'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-22 to 2026-01-23"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-22', 'dateTo': '2026-01-23'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-23 to 2026-01-24"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-23', 'dateTo': '2026-01-24'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-24 to 2026-01-25"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-24', 'dateTo': '2026-01-25'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-25 to 2026-01-26"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-25', 'dateTo': '2026-01-26'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-26 to 2026-01-27"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-26', 'dateTo': '2026-01-27'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-27 to 2026-01-28"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-27', 'dateTo': '2026-01-28'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-28 to 2026-01-29"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-28', 'dateTo': '2026-01-29'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-29 to 2026-01-30"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-29', 'dateTo': '2026-01-30'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-30 to 2026-01-31"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-30', 'dateTo': '2026-01-31'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-31 to 2026-02-01"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-31', 'dateTo': '2026-02-01'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-01 to 2026-01-02"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-01', 'dateTo': '2026-01-02'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-02 to 2026-01-03"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-02', 'dateTo': '2026-01-03'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-03 to 2026-01-04"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-03', 'dateTo': '2026-01-04'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-04 to 2026-01-05"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-04', 'dateTo': '2026-01-05'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-05 to 2026-01-06"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-05', 'dateTo': '2026-01-06'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-06 to 2026-01-07"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-06', 'dateTo': '2026-01-07'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-07 to 2026-01-08"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-07', 'dateTo': '2026-01-08'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-08 to 2026-01-09"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-08', 'dateTo': '2026-01-09'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-09 to 2026-01-10"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-09', 'dateTo': '2026-01-10'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-10 to 2026-01-11"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-10', 'dateTo': '2026-01-11'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-11 to 2026-01-12"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-11', 'dateTo': '2026-01-12'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-12 to 2026-01-13"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-12', 'dateTo': '2026-01-13'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-13 to 2026-01-14"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-13', 'dateTo': '2026-01-14'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-14 to 2026-01-15"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-14', 'dateTo': '2026-01-15'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-15 to 2026-01-16"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-15', 'dateTo': '2026-01-16'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-16 to 2026-01-17"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-16', 'dateTo': '2026-01-17'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-17 to 2026-01-18"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-17', 'dateTo': '2026-01-18'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-18 to 2026-01-19"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-18', 'dateTo': '2026-01-19'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-19 to 2026-01-20"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-19', 'dateTo': '2026-01-20'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-20 to 2026-01-21"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-20', 'dateTo': '2026-01-21'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-21 to 2026-01-22"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-21', 'dateTo': '2026-01-22'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-22 to 2026-01-23"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-22', 'dateTo': '2026-01-23'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-23 to 2026-01-24"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-23', 'dateTo': '2026-01-24'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-24 to 2026-01-25"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-24', 'dateTo': '2026-01-25'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-25 to 2026-01-26"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-25', 'dateTo': '2026-01-26'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-26 to 2026-01-27"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-26', 'dateTo': '2026-01-27'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-27 to 2026-01-28"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-27', 'dateTo': '2026-01-28'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-28 to 2026-01-29"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-28', 'dateTo': '2026-01-29'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-29 to 2026-01-30"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-29', 'dateTo': '2026-01-30'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-30 to 2026-01-31"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-30', 'dateTo': '2026-01-31'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-31 to 2026-02-01"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-31', 'dateTo': '2026-02-01'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-01 to 2026-01-02"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-01', 'dateTo': '2026-01-02'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-02 to 2026-01-03"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-02', 'dateTo': '2026-01-03'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-03 to 2026-01-04"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-03', 'dateTo': '2026-01-04'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-04 to 2026-01-05"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-04', 'dateTo': '2026-01-05'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-05 to 2026-01-06"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-05', 'dateTo': '2026-01-06'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-06 to 2026-01-07"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-06', 'dateTo': '2026-01-07'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-07 to 2026-01-08"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-07', 'dateTo': '2026-01-08'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-08 to 2026-01-09"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-08', 'dateTo': '2026-01-09'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-09 to 2026-01-10"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-09', 'dateTo': '2026-01-10'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-10 to 2026-01-11"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-10', 'dateTo': '2026-01-11'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-11 to 2026-01-12"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-11', 'dateTo': '2026-01-12'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-12 to 2026-01-13"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-12', 'dateTo': '2026-01-13'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-13 to 2026-01-14"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-13', 'dateTo': '2026-01-14'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-14 to 2026-01-15"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-14', 'dateTo': '2026-01-15'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-15 to 2026-01-16"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-15', 'dateTo': '2026-01-16'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-16 to 2026-01-17"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-16', 'dateTo': '2026-01-17'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-17 to 2026-01-18"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-17', 'dateTo': '2026-01-18'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-18 to 2026-01-19"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-18', 'dateTo': '2026-01-19'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-19 to 2026-01-20"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-19', 'dateTo': '2026-01-20'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-20 to 2026-01-21"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-20', 'dateTo': '2026-01-21'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-21 to 2026-01-22"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-21', 'dateTo': '2026-01-22'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-22 to 2026-01-23"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-22', 'dateTo': '2026-01-23'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-23 to 2026-01-24"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-23', 'dateTo': '2026-01-24'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-24 to 2026-01-25"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-24', 'dateTo': '2026-01-25'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-25 to 2026-01-26"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-25', 'dateTo': '2026-01-26'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-26 to 2026-01-27"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-26', 'dateTo': '2026-01-27'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-27 to 2026-01-28"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-27', 'dateTo': '2026-01-28'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-28 to 2026-01-29"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-28', 'dateTo': '2026-01-29'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-29 to 2026-01-30"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-29', 'dateTo': '2026-01-30'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-30 to 2026-01-31"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-30', 'dateTo': '2026-01-31'}. Try a different aggregation period"
+    },
+    {
+      "level": "INFO",
+      "logger": "root",
+      "message": "Fetching OfferPrices data for interval 2026-01-31 to 2026-02-01"
+    },
+    {
+      "level": "WARNING",
+      "logger": "root",
+      "message": "No data returned for OfferPrices with request {'dateFrom': '2026-01-31', 'dateTo': '2026-02-01'}. Try a different aggregation period"
+    }
+  ]
+}

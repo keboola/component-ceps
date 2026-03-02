@@ -1,0 +1,197 @@
+[
+  {
+    "name": "crossborder_power_flows",
+    "description": "CrossborderPowerFlows endpoint — all granularities",
+    "config": {
+      "parameters": {
+        "date_from": "2026-01-01",
+        "date_to": "2026-02-01",
+        "continue_on_fail": true,
+        "endpoints": [
+          {"endpoint_name": "CrossborderPowerFlows", "granularity": "DY"},
+          {"endpoint_name": "CrossborderPowerFlows", "granularity": "HR"},
+          {"endpoint_name": "CrossborderPowerFlows", "granularity": "QH"},
+          {"endpoint_name": "CrossborderPowerFlows", "granularity": "MI"},
+          {"endpoint_name": "CrossborderPowerFlows", "granularity": "None"}
+        ]
+      }
+    }
+  },
+  {
+    "name": "generation",
+    "description": "Generation endpoint — all granularities",
+    "config": {
+      "parameters": {
+        "date_from": "2026-01-01",
+        "date_to": "2026-02-01",
+        "continue_on_fail": true,
+        "endpoints": [
+          {"endpoint_name": "Generation", "granularity": "DY"},
+          {"endpoint_name": "Generation", "granularity": "HR"},
+          {"endpoint_name": "Generation", "granularity": "QH"},
+          {"endpoint_name": "Generation", "granularity": "MI"},
+          {"endpoint_name": "Generation", "granularity": "None"}
+        ]
+      }
+    }
+  },
+  {
+    "name": "generation_plan",
+    "description": "GenerationPlan endpoint — all granularities",
+    "config": {
+      "parameters": {
+        "date_from": "2026-01-01",
+        "date_to": "2026-02-01",
+        "continue_on_fail": true,
+        "endpoints": [
+          {"endpoint_name": "GenerationPlan", "granularity": "DY"},
+          {"endpoint_name": "GenerationPlan", "granularity": "HR"},
+          {"endpoint_name": "GenerationPlan", "granularity": "QH"},
+          {"endpoint_name": "GenerationPlan", "granularity": "MI"},
+          {"endpoint_name": "GenerationPlan", "granularity": "None"}
+        ]
+      }
+    }
+  },
+  {
+    "name": "generation_res",
+    "description": "GenerationRES endpoint — all granularities",
+    "config": {
+      "parameters": {
+        "date_from": "2026-01-01",
+        "date_to": "2026-02-01",
+        "continue_on_fail": true,
+        "endpoints": [
+          {"endpoint_name": "GenerationRES", "granularity": "DY"},
+          {"endpoint_name": "GenerationRES", "granularity": "HR"},
+          {"endpoint_name": "GenerationRES", "granularity": "QH"},
+          {"endpoint_name": "GenerationRES", "granularity": "MI"},
+          {"endpoint_name": "GenerationRES", "granularity": "None"}
+        ]
+      }
+    }
+  },
+  {
+    "name": "load",
+    "description": "Load endpoint — all granularities",
+    "config": {
+      "parameters": {
+        "date_from": "2026-01-01",
+        "date_to": "2026-02-01",
+        "continue_on_fail": true,
+        "endpoints": [
+          {"endpoint_name": "Load", "granularity": "DY"},
+          {"endpoint_name": "Load", "granularity": "HR"},
+          {"endpoint_name": "Load", "granularity": "QH"},
+          {"endpoint_name": "Load", "granularity": "MI"},
+          {"endpoint_name": "Load", "granularity": "None"}
+        ]
+      }
+    }
+  },
+  {
+    "name": "odhadovana_cena_odchylky",
+    "description": "OdhadovanaCenaOdchylky endpoint — all granularities",
+    "config": {
+      "parameters": {
+        "date_from": "2026-01-01",
+        "date_to": "2026-02-01",
+        "continue_on_fail": true,
+        "endpoints": [
+          {"endpoint_name": "OdhadovanaCenaOdchylky", "granularity": "DY"},
+          {"endpoint_name": "OdhadovanaCenaOdchylky", "granularity": "HR"},
+          {"endpoint_name": "OdhadovanaCenaOdchylky", "granularity": "QH"},
+          {"endpoint_name": "OdhadovanaCenaOdchylky", "granularity": "MI"},
+          {"endpoint_name": "OdhadovanaCenaOdchylky", "granularity": "None"}
+        ]
+      }
+    }
+  },
+  {
+    "name": "offer_prices",
+    "description": "OfferPrices endpoint — all granularities (day intervals)",
+    "config": {
+      "parameters": {
+        "date_from": "2026-01-01",
+        "date_to": "2026-02-01",
+        "continue_on_fail": true,
+        "endpoints": [
+          {"endpoint_name": "OfferPrices", "granularity": "DY"},
+          {"endpoint_name": "OfferPrices", "granularity": "HR"},
+          {"endpoint_name": "OfferPrices", "granularity": "QH"},
+          {"endpoint_name": "OfferPrices", "granularity": "MI"},
+          {"endpoint_name": "OfferPrices", "granularity": "None"}
+        ]
+      }
+    }
+  },
+  {
+    "name": "regulation_energy",
+    "description": "RegulationEnergy endpoint — all granularities",
+    "config": {
+      "parameters": {
+        "date_from": "2026-01-01",
+        "date_to": "2026-02-01",
+        "continue_on_fail": true,
+        "endpoints": [
+          {"endpoint_name": "RegulationEnergy", "granularity": "DY"},
+          {"endpoint_name": "RegulationEnergy", "granularity": "HR"},
+          {"endpoint_name": "RegulationEnergy", "granularity": "QH"},
+          {"endpoint_name": "RegulationEnergy", "granularity": "MI"},
+          {"endpoint_name": "RegulationEnergy", "granularity": "None"}
+        ]
+      }
+    }
+  },
+  {
+    "name": "regulation_energy_b",
+    "description": "RegulationEnergyB endpoint — all granularities",
+    "config": {
+      "parameters": {
+        "date_from": "2026-01-01",
+        "date_to": "2026-02-01",
+        "continue_on_fail": true,
+        "endpoints": [
+          {"endpoint_name": "RegulationEnergyB", "granularity": "DY"},
+          {"endpoint_name": "RegulationEnergyB", "granularity": "HR"},
+          {"endpoint_name": "RegulationEnergyB", "granularity": "QH"},
+          {"endpoint_name": "RegulationEnergyB", "granularity": "MI"},
+          {"endpoint_name": "RegulationEnergyB", "granularity": "None"}
+        ]
+      }
+    }
+  },
+  {
+    "name": "aktualni_systemova_odchylka",
+    "description": "AktualniSystemovaOdchylkaCR endpoint — all granularities",
+    "config": {
+      "parameters": {
+        "date_from": "2026-01-01",
+        "date_to": "2026-02-01",
+        "continue_on_fail": true,
+        "endpoints": [
+          {"endpoint_name": "AktualniSystemovaOdchylkaCR", "granularity": "DY"},
+          {"endpoint_name": "AktualniSystemovaOdchylkaCR", "granularity": "HR"},
+          {"endpoint_name": "AktualniSystemovaOdchylkaCR", "granularity": "QH"},
+          {"endpoint_name": "AktualniSystemovaOdchylkaCR", "granularity": "MI"},
+          {"endpoint_name": "AktualniSystemovaOdchylkaCR", "granularity": "None"}
+        ]
+      }
+    }
+  },
+  {
+    "name": "continue_on_fail_with_invalid",
+    "description": "continue_on_fail=true with invalid granularity — component should not crash",
+    "config": {
+      "parameters": {
+        "date_from": "2026-01-01",
+        "date_to": "2026-02-01",
+        "continue_on_fail": true,
+        "endpoints": [
+          {"endpoint_name": "Generation", "granularity": "HR"},
+          {"endpoint_name": "Generation", "granularity": "INVALID_GRANULARITY"}
+        ]
+      }
+    }
+  }
+]
