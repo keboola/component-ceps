@@ -1,0 +1,37 @@
+[project]
+name = "component-ceps"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = [
+    "keboola.component>=1.9.2",
+    "keboola.utils==1.1.0",
+    "keboola.http-client==1.0.0",
+    "freezegun>=1.5.5,<2",
+    "zeep==4.1.0",
+    "requests==2.27.1",
+    "platformdirs==2.5.0",
+    "pyarrow>=14.0.0",
+    "pygelf==0.4.2",
+    "python-dateutil==2.8.2",
+    "pytz-deprecation-shim==0.1.0.post0",
+    "regex==2022.1.18",
+    "requests-file==1.5.1",
+    "requests-toolbelt==0.9.1",
+    "six==1.16.0",
+    "tzdata==2021.5",
+    "tzlocal==4.1",
+    "urllib3==1.26.8",
+    "xmltodict==0.12.0",
+]
+
+[dependency-groups]
+dev = [
+    "mock==4.0.3",
+    "pytest",
+    "flake8",
+    "keboola.datadirtest==2.0.0",
+    "keboola.vcr==0.1.1",
+]
+
+[tool.setuptools]
+packages = []

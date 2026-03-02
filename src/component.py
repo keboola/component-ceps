@@ -69,8 +69,9 @@ class Component(ComponentBase):
         endpoint_name = endpoint.get(KEY_ENDPOINT_NAME)
         logging.info(f"Fetching {endpoint_name} data")
 
-        out_table = self.create_out_table_definition(f'{endpoint_name}.csv', incremental=True, enclosure="")
-        out_table.primary_key = self.get_endpoint_p_keys(endpoint_name)
+        out_table = self.create_out_table_definition(f'{endpoint_name}.csv', incremental=True, enclosure="",
+                                                     schema=endpoint_columns,
+                                                     primary_key=self.get_endpoint_p_keys(endpoint_name))
 
         self.tables.append(out_table)
 

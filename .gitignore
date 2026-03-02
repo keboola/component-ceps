@@ -10,3 +10,14 @@ __pycache__/
 # kbc datafolder
 /data
 /venv
+.venv
+
+# VCR test scaffolding (gitignored — real configs stay local)
+secrets.json
+configs.json
+!tests/setup/configs.json
+tests/functional/*/source/data/config.secrets.json
+
+# Test runtime dirs (regenerated during replay)
+tests/functional/*/source/data/out/
+tests/functional/*/source/data/in/
