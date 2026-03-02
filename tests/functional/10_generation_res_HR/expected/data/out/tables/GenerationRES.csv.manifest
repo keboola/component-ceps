@@ -1,0 +1,45 @@
+{
+  "incremental": true,
+  "write_always": false,
+  "delimiter": ",",
+  "manifest_type": "out",
+  "has_header": false,
+  "schema": [
+    {
+      "name": "date",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "wpp_mw",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "pvpp_mw",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "granularity",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    }
+  ]
+}

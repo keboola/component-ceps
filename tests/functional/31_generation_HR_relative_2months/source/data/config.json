@@ -1,0 +1,12 @@
+{
+  "parameters": {
+    "date_from": "2 months ago",
+    "date_to": "now",
+    "endpoints": [
+      {
+        "endpoint_name": "Generation",
+        "granularity": "HR"
+      }
+    ]
+  }
+}

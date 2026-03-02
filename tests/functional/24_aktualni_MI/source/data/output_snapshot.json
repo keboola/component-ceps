@@ -1,0 +1,23 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "AktualniSystemovaOdchylkaCR.csv": {
+      "columns": [
+        "date",
+        "aktualni_odchylka_mw",
+        "granularity"
+      ],
+      "hash": "sha256:e77f723db2953c0c46c3f018abc2c779b655e103d5d98e73f7b4e64d4e58c6b0",
+      "row_count": 83523,
+      "size_bytes": 3221437
+    },
+    "AktualniSystemovaOdchylkaCR.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:67373d1dcf2561f2c6a549188b074bc84c149fc11c91a4a7da196044fedb2ec9",
+      "row_count": null,
+      "size_bytes": 617
+    }
+  },
+  "version": "1.0"
+}

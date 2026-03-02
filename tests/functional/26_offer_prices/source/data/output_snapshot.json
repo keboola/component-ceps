@@ -1,0 +1,44 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "OfferPrices.csv": {
+      "columns": [
+        "date",
+        "hour",
+        "unit",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "granularity"
+      ],
+      "hash": "sha256:8faeaeea948e2406ed17a7608b50c6d5836eb7d8dcd6490d25ea3b26eacb0cdc",
+      "row_count": 1,
+      "size_bytes": 78
+    },
+    "OfferPrices.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:90cc78a6d34d8e5f6e5347d2af2d1df67030b5ed7ed178b3a046eaff199f3d5b",
+      "row_count": null,
+      "size_bytes": 3609
+    }
+  },
+  "version": "1.0"
+}

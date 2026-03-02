@@ -1,5 +1,5 @@
 #!/bin/sh
 set -e
 
-flake8 --config=flake8.cfg
-python -m unittest discover
+uv run ruff check src/
+uv run python -m pytest tests/ --tb=short -q
