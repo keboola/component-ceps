@@ -2,8 +2,8 @@ import hashlib
 import io
 import os
 import shutil
-from csv import DictWriter, DictReader
-from typing import Iterable
+from collections.abc import Iterable
+from csv import DictReader, DictWriter
 
 
 class CachedOrthogonalDictWriter:
@@ -92,7 +92,7 @@ class CachedOrthogonalDictWriter:
         wr = self._writer_cache.get(writer_key)
         if not wr:
             tmp_file = os.path.join(self.temp_directory, writer_key)
-            t_file = open(tmp_file, 'wt+', newline='', buffering=self.buffering, encoding=self.encoding)
+            t_file = open(tmp_file, "w+", newline='', buffering=self.buffering, encoding=self.encoding)
             self._tmp_file_cache[writer_key] = t_file
             wr = DictWriter(t_file, self.fieldnames.copy(), *self.args, **self.kwds)
             wr.writeheader()
@@ -143,7 +143,7 @@ class CachedOrthogonalDictWriter:
         src_file = os.path.join(self.temp_directory, final_writer_key)
 
         # write the result and add header.
-        with open(src_file, 'r', encoding=self.encoding) as source_file, open(self.result_path, 'w',
+        with open(src_file, encoding=self.encoding) as source_file, open(self.result_path, 'w',
                                                                               buffering=self.buffering,
                                                                               encoding=self.encoding) as target_file:
             if not self._write_header:
@@ -170,7 +170,7 @@ class CachedOrthogonalDictWriter:
         self._tmp_file_cache[final_writer_key].close()
 
     def _append_data(self, final_writer, partition_path):
-        with open(partition_path, mode='rt', encoding='utf-8') as in_file:
+        with open(partition_path, encoding='utf-8') as in_file:
             reader = DictReader(in_file)
             for r in reader:
                 final_writer.writerow(r)

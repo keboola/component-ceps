@@ -1,13 +1,15 @@
-import logging
-import warnings
 import json
+import logging
 import os
-from ceps import CepsClient, CepsClientException
+import tempfile
+import warnings
+
+import keboola.utils.date as dutils
 from keboola.component.base import ComponentBase
 from keboola.component.exceptions import UserException
-import keboola.utils.date as dutils
+
+from ceps import CepsClient, CepsClientException
 from csv_tools import CachedOrthogonalDictWriter
-import tempfile
 
 KEY_DATE_FROM = 'date_from'
 KEY_DATE_TO = 'date_to'
@@ -153,7 +155,7 @@ class Component(ComponentBase):
     def get_endpoint_defintion():
         dirname = os.path.dirname(__file__)
         filename = os.path.join(dirname, 'ceps/endpoint_columns.json')
-        with open(filename, "r") as json_file:
+        with open(filename) as json_file:
             return json.load(json_file)
 
 

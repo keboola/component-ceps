@@ -1,16 +1,13 @@
 import logging.config
-from typing import List
 
-from zeep.wsdl.utils import etree_to_string
 import xmltodict
-
 import zeep
+from keboola.utils.header_normalizer import DefaultHeaderNormalizer
 from requests import Session
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
 from zeep.transports import Transport
-
-from keboola.utils.header_normalizer import DefaultHeaderNormalizer
+from zeep.wsdl.utils import etree_to_string
 
 WSDL_URL = 'https://www.ceps.cz/_layouts/CepsData.asmx?wsdl'
 
@@ -149,7 +146,7 @@ class CepsClient:
     def process_fieldnames(field_names, add_date):
         field_names_dict = {}
         header_normalizer = DefaultHeaderNormalizer()
-        if not isinstance(field_names, List):
+        if not isinstance(field_names, list):
             field_names = [field_names]
         if add_date:
             field_names_dict["@date"] = "date"
