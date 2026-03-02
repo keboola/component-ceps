@@ -6,7 +6,6 @@ COPY /tests /code/tests/
 COPY /scripts /code/scripts/
 COPY pyproject.toml /code/pyproject.toml
 COPY uv.lock /code/uv.lock
-COPY .flake8 /code/.flake8
 COPY deploy.sh /code/deploy.sh
 
 # install gcc and git — gcc for building native extensions, git for VCS dependencies
