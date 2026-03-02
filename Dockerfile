@@ -8,9 +8,6 @@ COPY pyproject.toml /code/pyproject.toml
 COPY uv.lock /code/uv.lock
 COPY deploy.sh /code/deploy.sh
 
-# install gcc and git — gcc for building native extensions, git for VCS dependencies
-RUN apt-get update && apt-get install -y build-essential git curl && rm -rf /var/lib/apt/lists/*
-
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh
 ENV PATH="/root/.local/bin:$PATH"
 
