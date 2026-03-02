@@ -4,18 +4,19 @@ ENV PYTHONIOENCODING utf-8
 COPY /src /code/src/
 COPY /tests /code/tests/
 COPY /scripts /code/scripts/
-COPY requirements.txt /code/requirements.txt
-COPY flake8.cfg /code/flake8.cfg
+COPY pyproject.toml /code/pyproject.toml
+COPY uv.lock /code/uv.lock
+COPY .flake8 /code/.flake8
 COPY deploy.sh /code/deploy.sh
 
-# install gcc to be able to build packages - e.g. required by regex, dateparser, also required for pandas
-RUN apt-get update && apt-get install -y build-essential
+# install gcc and git — gcc for building native extensions, git for VCS dependencies
+RUN apt-get update && apt-get install -y build-essential git curl && rm -rf /var/lib/apt/lists/*
 
-RUN pip install flake8
-
-RUN pip install -r /code/requirements.txt
+RUN curl -LsSf https://astral.sh/uv/install.sh | sh
+ENV PATH="/root/.local/bin:$PATH"
 
 WORKDIR /code/
 
+RUN uv sync --frozen
 
-CMD ["python", "-u", "/code/src/component.py"]
+CMD ["uv", "run", "python", "-u", "/code/src/component.py"]
