@@ -31,8 +31,17 @@ class CachedOrthogonalDictWriter:
         1,2,,
     """
 
-    def __init__(self, file_path, fieldnames, temp_directory=None, dialect="excel", buffering=io.DEFAULT_BUFFER_SIZE,
-                 table_name="", *args, **kwds):
+    def __init__(
+        self,
+        file_path,
+        fieldnames,
+        temp_directory=None,
+        dialect="excel",
+        buffering=io.DEFAULT_BUFFER_SIZE,
+        table_name="",
+        *args,
+        **kwds,
+    ):
         """
 
         :param file_path: result file path
@@ -53,12 +62,12 @@ class CachedOrthogonalDictWriter:
         self.kwds = kwds
 
         self.buffering = buffering
-        self.encoding = kwds.get('encoding', 'utf-8')
+        self.encoding = kwds.get("encoding", "utf-8")
 
         self._write_header = False
 
         if not temp_directory:
-            temp_directory = os.path.join(os.path.dirname(file_path), 'csv_temp')
+            temp_directory = os.path.join(os.path.dirname(file_path), "csv_temp")
 
         os.makedirs(temp_directory, exist_ok=True)
         self.temp_directory = temp_directory
@@ -92,7 +101,7 @@ class CachedOrthogonalDictWriter:
         wr = self._writer_cache.get(writer_key)
         if not wr:
             tmp_file = os.path.join(self.temp_directory, writer_key)
-            t_file = open(tmp_file, "w+", newline='', buffering=self.buffering, encoding=self.encoding)
+            t_file = open(tmp_file, "w+", newline="", buffering=self.buffering, encoding=self.encoding)
             self._tmp_file_cache[writer_key] = t_file
             wr = DictWriter(t_file, self.fieldnames.copy(), *self.args, **self.kwds)
             wr.writeheader()
@@ -115,7 +124,7 @@ class CachedOrthogonalDictWriter:
     def _generate_hashed_header_key(self, columns):
         # sort cols
         columns.sort()
-        return hashlib.md5('_'.join(columns).encode('utf-8')).hexdigest()
+        return hashlib.md5("_".join(columns).encode("utf-8")).hexdigest()
 
     def __enter__(self):
         return self
@@ -143,9 +152,10 @@ class CachedOrthogonalDictWriter:
         src_file = os.path.join(self.temp_directory, final_writer_key)
 
         # write the result and add header.
-        with open(src_file, encoding=self.encoding) as source_file, open(self.result_path, 'w',
-                                                                              buffering=self.buffering,
-                                                                              encoding=self.encoding) as target_file:
+        with (
+            open(src_file, encoding=self.encoding) as source_file,
+            open(self.result_path, "w", buffering=self.buffering, encoding=self.encoding) as target_file,
+        ):
             if not self._write_header:
                 source_file.readline()
             # this will truncate the file, so need to use a different file name:
@@ -170,7 +180,7 @@ class CachedOrthogonalDictWriter:
         self._tmp_file_cache[final_writer_key].close()
 
     def _append_data(self, final_writer, partition_path):
-        with open(partition_path, encoding='utf-8') as in_file:
+        with open(partition_path, encoding="utf-8") as in_file:
             reader = DictReader(in_file)
             for r in reader:
                 final_writer.writerow(r)

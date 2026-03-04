@@ -1,19 +1,18 @@
-FROM python:3.11-slim
-ENV PYTHONIOENCODING utf-8
+FROM python:3.13-slim
 
 COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
-COPY /src /code/src/
-COPY /tests /code/tests/
-COPY /scripts /code/scripts/
-COPY pyproject.toml /code/pyproject.toml
-COPY uv.lock /code/uv.lock
-COPY deploy.sh /code/deploy.sh
-
 WORKDIR /code/
+
+COPY /src src/
+COPY /tests tests/
+COPY /scripts scripts/
+COPY pyproject.toml pyproject.toml
+COPY uv.lock uv.lock
+COPY deploy.sh deploy.sh
 
 ENV UV_PROJECT_ENVIRONMENT="/usr/local/"
 
 RUN uv sync --frozen
 
-CMD ["python", "-u", "/code/src/component.py"]
+CMD ["python", "-u", "src/component.py"]
