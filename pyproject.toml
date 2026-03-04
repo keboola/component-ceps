@@ -5,7 +5,7 @@ requires-python = ">=3.11"
 dependencies = [
     "keboola.component>=1.9.2",
     "keboola.utils==1.1.0",
-    "zeep==4.1.0",
+    "zeep>=4.2.1",
     "requests==2.27.1",
     "xmltodict==0.12.0",
 ]
