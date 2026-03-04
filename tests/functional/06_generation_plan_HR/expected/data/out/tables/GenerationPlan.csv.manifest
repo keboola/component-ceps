@@ -1,0 +1,37 @@
+{
+  "incremental": true,
+  "write_always": false,
+  "delimiter": ",",
+  "manifest_type": "out",
+  "has_header": false,
+  "schema": [
+    {
+      "name": "date",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true,
+      "primary_key": true
+    },
+    {
+      "name": "generation_plan_mw",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "granularity",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    }
+  ]
+}

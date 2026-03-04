@@ -1,0 +1,34 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "CrossborderPowerFlows.csv": {
+      "columns": [
+        "date",
+        "pse_actual_mw",
+        "50hzt_planned_mw",
+        "ceps_actual_mw",
+        "apg_actual_mw",
+        "tennet_actual_mw",
+        "pse_planned_mw",
+        "50hzt_actual_mw",
+        "tennet_planned_mw",
+        "ceps_planned_mw",
+        "seps_actual_mw",
+        "seps_planned_mw",
+        "apg_planned_mw",
+        "granularity"
+      ],
+      "hash": "sha256:13febe9b5026e6b35fcc8e47389db21d3f8d99f107fded5afdb01e0bff9f0129",
+      "row_count": 2785,
+      "size_bytes": 372105
+    },
+    "CrossborderPowerFlows.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:17268ee1ffcc91cfec1bcd19f50aac67bbf03fbc4ea9f86c5377b5578b62c7ae",
+      "row_count": null,
+      "size_bytes": 2302
+    }
+  },
+  "version": "1.0"
+}

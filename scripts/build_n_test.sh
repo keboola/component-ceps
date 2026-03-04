@@ -1,4 +1,5 @@
 #!/bin/sh
 set -e
 
-python -m unittest discover
+uv run ruff check src/
+uv run python -m pytest tests/ --tb=short -q

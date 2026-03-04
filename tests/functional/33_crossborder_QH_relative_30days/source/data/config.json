@@ -1,0 +1,12 @@
+{
+  "parameters": {
+    "date_from": "30 days ago",
+    "date_to": "yesterday",
+    "endpoints": [
+      {
+        "endpoint_name": "CrossborderPowerFlows",
+        "granularity": "QH"
+      }
+    ]
+  }
+}

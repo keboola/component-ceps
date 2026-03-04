@@ -1,0 +1,23 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "GenerationPlan.csv": {
+      "columns": [
+        "date",
+        "generation_plan_mw",
+        "granularity"
+      ],
+      "hash": "sha256:4dffdd8acfa49e621e941bffa8429d2fb2a3ca67293f40e0551738844039dad8",
+      "row_count": 1395,
+      "size_bytes": 50867
+    },
+    "GenerationPlan.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:5834db201a1229167484f2d57c4e0b3f3d4ce2fb2e4d7866a49d14112eeac5f3",
+      "row_count": null,
+      "size_bytes": 615
+    }
+  },
+  "version": "1.0"
+}
