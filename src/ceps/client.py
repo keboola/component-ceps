@@ -1,26 +1,21 @@
 import logging.config
-from typing import List
 
-from zeep.wsdl.utils import etree_to_string
 import xmltodict
-
 import zeep
+import zeep.transports
+import zeep.wsdl.utils
+from keboola.utils.header_normalizer import DefaultHeaderNormalizer
 from requests import Session
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
-from zeep.transports import Transport
 
-from keboola.utils.header_normalizer import DefaultHeaderNormalizer
-
-WSDL_URL = 'https://www.ceps.cz/_layouts/CepsData.asmx?wsdl'
+WSDL_URL = "https://www.ceps.cz/_layouts/CepsData.asmx?wsdl"
 
 MAX_RETRIES = 10
 
 # Custom column name mappings to override header normalizer output
 # The header normalizer drops diacritics incorrectly (e.g., 'í' -> '' instead of 'i')
-COLUMN_NAME_OVERRIDES = {
-    "aktuln_odchylka_mw": "aktualni_odchylka_mw"
-}
+COLUMN_NAME_OVERRIDES = {"aktuln_odchylka_mw": "aktualni_odchylka_mw"}
 
 
 class CepsClientException(Exception):
@@ -28,7 +23,6 @@ class CepsClientException(Exception):
 
 
 class CepsClient:
-
     def __init__(self, debug=False, max_retries=MAX_RETRIES, backoff_factor=0.3):
         self._set_logger(debug)
         session = Session()
@@ -38,12 +32,12 @@ class CepsClient:
             connect=max_retries,
             backoff_factor=backoff_factor,
             status_forcelist=(500, 501, 502, 503, 504),
-            method_whitelist=('GET', 'POST', 'PATCH', 'UPDATE')
+            method_whitelist=("GET", "POST", "PATCH", "UPDATE"),
         )
         adapter = HTTPAdapter(max_retries=retry)
-        session.mount('http://', adapter)
-        session.mount('https://', adapter)
-        transport = Transport(session=session)
+        session.mount("http://", adapter)
+        session.mount("https://", adapter)
+        transport = zeep.transports.Transport(session=session)
         self.client = zeep.Client(WSDL_URL, transport=transport)
 
     def _set_logger(self, debug):
@@ -52,28 +46,26 @@ class CepsClient:
         else:
             log_level = "INFO"
 
-        logging.config.dictConfig({
-            'version': 1,
-            'formatters': {
-                'verbose': {
-                    'format': '%(name)s: %(message)s'
-                }
-            },
-            'handlers': {
-                'console': {
-                    'level': log_level,
-                    'class': 'logging.StreamHandler',
-                    'formatter': 'verbose',
+        logging.config.dictConfig(
+            {
+                "version": 1,
+                "formatters": {"verbose": {"format": "%(name)s: %(message)s"}},
+                "handlers": {
+                    "console": {
+                        "level": log_level,
+                        "class": "logging.StreamHandler",
+                        "formatter": "verbose",
+                    },
                 },
-            },
-            'loggers': {
-                'zeep.transports': {
-                    'level': log_level,
-                    'propagate': True,
-                    'handlers': ['console'],
+                "loggers": {
+                    "zeep.transports": {
+                        "level": log_level,
+                        "propagate": True,
+                        "handlers": ["console"],
+                    },
                 },
             }
-        })
+        )
 
     def get_data(self, endpoint, date_start, date_end, granularity="HR", function="AVG", version="RT"):
         if endpoint == "DataVersion":
@@ -81,21 +73,28 @@ class CepsClient:
         elif endpoint in ["NepredvidatelneOdmitnuteNabidky", "OdhadovanaCenaOdchylky", "OfferPrices"]:
             return self.get_timeseries_data(endpoint, date_start, date_end, add_para1=False)
         elif endpoint in ["AktualniSystemovaOdchylkaCR"]:
-            return self.get_timeseries_data(endpoint, date_start, date_end, granularity=granularity, function=function,
-                                            add_para1=False)
+            return self.get_timeseries_data(
+                endpoint, date_start, date_end, granularity=granularity, function=function, add_para1=False
+            )
         elif endpoint in ["RegulationEnergy", "RegulationEnergyB", "CrossborderPowerFlows", "GenerationPlan", "Load"]:
-            return self.get_timeseries_data(endpoint, date_start, date_end, granularity=granularity, function=function,
-                                            version=version, add_para1=False)
+            return self.get_timeseries_data(
+                endpoint,
+                date_start,
+                date_end,
+                granularity=granularity,
+                function=function,
+                version=version,
+                add_para1=False,
+            )
         else:
-            return self.get_timeseries_data(endpoint, date_start, date_end, granularity=granularity, function=function,
-                                            version=version)
+            return self.get_timeseries_data(
+                endpoint, date_start, date_end, granularity=granularity, function=function, version=version
+            )
 
-    def get_timeseries_data(self, endpoint, date_start, date_end, granularity=None, function=None, version=None,
-                            add_para1=True):
-        request_data = {
-            "dateFrom": date_start,
-            "dateTo": date_end
-        }
+    def get_timeseries_data(
+        self, endpoint, date_start, date_end, granularity=None, function=None, version=None, add_para1=True
+    ):
+        request_data = {"dateFrom": date_start, "dateTo": date_end}
         if add_para1:
             request_data["para1"] = "all"
         if version:
@@ -110,8 +109,9 @@ class CepsClient:
             response = method_to_call(**request_data)
         except TypeError as type_error:
             raise CepsClientException(
-                f"Invalid request for {endpoint} with request {request_data}. {type_error}") from type_error
-        xml = etree_to_string(response).decode()
+                f"Invalid request for {endpoint} with request {request_data}. {type_error}"
+            ) from type_error
+        xml = zeep.wsdl.utils.etree_to_string(response).decode()
         response_data = xmltodict.parse(xml)
         try:
             data = response_data.get("root").get("data").get("item")
@@ -125,15 +125,15 @@ class CepsClient:
                 data = self.add_index(data)
         except AttributeError as att_exc:
             raise CepsClientException(
-                f"No data returned for {endpoint} with request {request_data}. "
-                f"Try a different aggregation period") from att_exc
+                f"No data returned for {endpoint} with request {request_data}. Try a different aggregation period"
+            ) from att_exc
 
         return data
 
     def get_data_version(self, endpoint):
         method_to_call = getattr(self.client.service, endpoint)
         response = method_to_call()
-        xml = etree_to_string(response).decode()
+        xml = zeep.wsdl.utils.etree_to_string(response).decode()
         response_data = xmltodict.parse(xml)
         return response_data
 
@@ -149,7 +149,7 @@ class CepsClient:
     def process_fieldnames(field_names, add_date):
         field_names_dict = {}
         header_normalizer = DefaultHeaderNormalizer()
-        if not isinstance(field_names, List):
+        if not isinstance(field_names, list):
             field_names = [field_names]
         if add_date:
             field_names_dict["@date"] = "date"

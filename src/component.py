@@ -1,16 +1,18 @@
-import logging
-import warnings
 import json
+import logging
 import os
-from ceps import CepsClient, CepsClientException
+import tempfile
+import warnings
+
+import keboola.utils.date as dutils
 from keboola.component.base import ComponentBase
 from keboola.component.exceptions import UserException
-import keboola.utils.date as dutils
-from csv_tools import CachedOrthogonalDictWriter
-import tempfile
 
-KEY_DATE_FROM = 'date_from'
-KEY_DATE_TO = 'date_to'
+from ceps import CepsClient, CepsClientException
+from csv_tools import CachedOrthogonalDictWriter
+
+KEY_DATE_FROM = "date_from"
+KEY_DATE_TO = "date_to"
 
 KEY_ENDPOINTS = "endpoints"
 KEY_ENDPOINT_NAME = "endpoint_name"
@@ -69,8 +71,13 @@ class Component(ComponentBase):
         endpoint_name = endpoint.get(KEY_ENDPOINT_NAME)
         logging.info(f"Fetching {endpoint_name} data")
 
-        out_table = self.create_out_table_definition(f'{endpoint_name}.csv', incremental=True, enclosure="")
-        out_table.primary_key = self.get_endpoint_p_keys(endpoint_name)
+        out_table = self.create_out_table_definition(
+            f"{endpoint_name}.csv",
+            incremental=True,
+            enclosure="",
+            schema=endpoint_columns,
+            primary_key=self.get_endpoint_p_keys(endpoint_name),
+        )
 
         self.tables.append(out_table)
 
@@ -84,8 +91,15 @@ class Component(ComponentBase):
 
     @staticmethod
     def get_endpoint_p_keys(endpoint_name):
-        if endpoint_name in ["CrossborderPowerFlows", "Generation", "GenerationPlan", "Load",
-                             "RegulationEnergy", "RegulationEnergyB", "AktualniSystemovaOdchylkaCR"]:
+        if endpoint_name in [
+            "CrossborderPowerFlows",
+            "Generation",
+            "GenerationPlan",
+            "Load",
+            "RegulationEnergy",
+            "RegulationEnergyB",
+            "AktualniSystemovaOdchylkaCR",
+        ]:
             return ["date"]
         elif endpoint_name in ["OdhadovanaCenaOdchylky"]:
             return ["hour", "date"]
@@ -94,15 +108,16 @@ class Component(ComponentBase):
 
     @staticmethod
     def process_interval(endpoint_name, interval, endpoint, client, writer, continue_on_fail):
-        logging.info(
-            f"Fetching {endpoint_name} data for interval {interval['start_date']} to {interval['end_date']}")
+        logging.info(f"Fetching {endpoint_name} data for interval {interval['start_date']} to {interval['end_date']}")
         try:
-            result = client.get_data(endpoint.get(KEY_ENDPOINT_NAME),
-                                     interval["start_date"],
-                                     interval["end_date"],
-                                     granularity=endpoint.get(KEY_ENDPOINT_GRANULARITY),
-                                     function=endpoint.get(KEY_ENDPOINT_FUNCTION, "AVG"),
-                                     version="RT")
+            result = client.get_data(
+                endpoint.get(KEY_ENDPOINT_NAME),
+                interval["start_date"],
+                interval["end_date"],
+                granularity=endpoint.get(KEY_ENDPOINT_GRANULARITY),
+                function=endpoint.get(KEY_ENDPOINT_FUNCTION, "AVG"),
+                version="RT",
+            )
             writer.writerows(result)
         except CepsClientException as ceps_exc:
             if continue_on_fail:
@@ -113,10 +128,9 @@ class Component(ComponentBase):
     def _get_writer_from_cache(self, out_table, fieldnames):
         if not self._writer_cache.get(out_table.name):
             # init writer if not in cache
-            self._writer_cache[out_table.name] = CachedOrthogonalDictWriter(out_table.full_path,
-                                                                            fieldnames,
-                                                                            temp_directory=tempfile.mkdtemp(),
-                                                                            table_name=out_table.name)
+            self._writer_cache[out_table.name] = CachedOrthogonalDictWriter(
+                out_table.full_path, fieldnames, temp_directory=tempfile.mkdtemp(), table_name=out_table.name
+            )
             self._writer_cache[out_table.name].writeheader()
 
         return self._writer_cache[out_table.name]
@@ -145,14 +159,14 @@ class Component(ComponentBase):
             raise UserException("Failed to parse date to and from. Make sure the input is valid") from parse_err
 
         if day_intervals:
-            return dutils.split_dates_to_chunks(start_date, end_date, intv=1, strformat='%Y-%m-%d')
-        return dutils.split_dates_to_chunks(start_date, end_date, intv=30, strformat='%Y-%m-%dT%H:%M:%S')
+            return dutils.split_dates_to_chunks(start_date, end_date, intv=1, strformat="%Y-%m-%d")
+        return dutils.split_dates_to_chunks(start_date, end_date, intv=30, strformat="%Y-%m-%dT%H:%M:%S")
 
     @staticmethod
     def get_endpoint_defintion():
         dirname = os.path.dirname(__file__)
-        filename = os.path.join(dirname, 'ceps/endpoint_columns.json')
-        with open(filename, "r") as json_file:
+        filename = os.path.join(dirname, "ceps/endpoint_columns.json")
+        with open(filename) as json_file:
             return json.load(json_file)
 
 
