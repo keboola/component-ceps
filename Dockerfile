@@ -11,6 +11,10 @@ COPY pyproject.toml pyproject.toml
 COPY uv.lock uv.lock
 COPY deploy.sh deploy.sh
 
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends git libjemalloc2 \
+    && rm -rf /var/lib/apt/lists/*
+
 ENV UV_PROJECT_ENVIRONMENT="/usr/local/"
 
 RUN uv sync --frozen
