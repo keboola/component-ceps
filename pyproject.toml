@@ -17,7 +17,7 @@ dev = [
     "ruff",
     "freezegun>=1.5.5,<2",
     "keboola.datadirtest>=2.0.0",
-    "keboola.vcr>=0.1.1",
+    "keboola-vcr @ git+https://github.com/keboola/python-vcr-tests.git@fix/oom-vcr-sanitizer-overhead",
 ]
 
 [tool.ruff]
