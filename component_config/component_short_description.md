@@ -1,1 +1,1 @@
-ČEPS, a.s. is a company providing operation of the electricity transmission system in the Czech Republic
+Extracts data from the CEPS API for selected endpoints.
