@@ -102,7 +102,7 @@ class Component(ComponentBase):
         ]:
             return ["date"]
         elif endpoint_name in ["OdhadovanaCenaOdchylky"]:
-            return ["hour", "date"]
+            return ["interval", "date"]
         elif endpoint_name in ["OfferPrices"]:
             return ["hour", "date", "unit"]
 
