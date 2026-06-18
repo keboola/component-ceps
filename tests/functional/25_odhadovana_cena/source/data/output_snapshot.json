@@ -5,21 +5,20 @@
     "OdhadovanaCenaOdchylky.csv": {
       "columns": [
         "date",
-        "hour",
+        "interval",
         "ordered_index",
         "estimated_price_kmwh",
-        "granularity",
-        "interval"
+        "granularity"
       ],
-      "hash": "sha256:890751e7a28198381fa9ecb132831a5c0a4f3d573c1fc3b3d0a01e7f91ffaa68",
+      "hash": "sha256:239486ce22ebc6df50a14c83a49686e545f546e12b4aa08fee8c91f3db381d41",
       "row_count": 5571,
-      "size_bytes": 285318
+      "size_bytes": 285314
     },
     "OdhadovanaCenaOdchylky.csv.manifest": {
       "columns": null,
-      "hash": "sha256:085740024252eabc0b975f01d9e6871399b71a521b1099d593ba65cd1a6c2063",
+      "hash": "sha256:0c13d14d3c3e3b11b41f8982002de7990f679a772e9989a1ae77f8d181b35ed4",
       "row_count": null,
-      "size_bytes": 939
+      "size_bytes": 943
     }
   },
   "version": "1.0"

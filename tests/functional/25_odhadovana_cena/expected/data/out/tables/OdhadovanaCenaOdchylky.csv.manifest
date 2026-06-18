@@ -16,7 +16,7 @@
       "primary_key": true
     },
     {
-      "name": "hour",
+      "name": "interval",
       "data_type": {
         "base": {
           "type": "STRING"
