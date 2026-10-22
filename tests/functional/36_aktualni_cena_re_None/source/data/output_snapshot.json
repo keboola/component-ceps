@@ -17,9 +17,9 @@
     },
     "AktualniCenaRE.csv.manifest": {
       "columns": null,
-      "hash": "sha256:47ba99a014884e86a2508fb43bf1357e28f3bfc13adca5efe94af5c13bbdeda4",
+      "hash": "sha256:d2a7f210e109a989be4cac6511dc2171a6de93d8903c2d4e49354c1ed21e0d44",
       "row_count": null,
-      "size_bytes": 1074
+      "size_bytes": 1073
     }
   },
   "version": "1.0"

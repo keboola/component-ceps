@@ -83,6 +83,7 @@ class Component(ComponentBase):
             f"{endpoint_name}.csv",
             incremental=True,
             enclosure="",
+            has_header=True,
             schema=endpoint_columns,
             primary_key=self.get_endpoint_p_keys(endpoint_name),
         )

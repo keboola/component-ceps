@@ -18,9 +18,9 @@
     },
     "AktivaceSVRvCR.csv.manifest": {
       "columns": null,
-      "hash": "sha256:b1428f6dc3dc522ad0b415a387aac730a95e5340b6ee1dc74e3158fd901363c3",
+      "hash": "sha256:2122f2092703ce5cab77dd2c5dfd1096065922b730824d5aa6413f796995de39",
       "row_count": null,
-      "size_bytes": 1238
+      "size_bytes": 1237
     }
   },
   "version": "1.0"
