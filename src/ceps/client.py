@@ -15,7 +15,25 @@ MAX_RETRIES = 10
 
 # Custom column name mappings to override header normalizer output
 # The header normalizer drops diacritics incorrectly (e.g., 'í' -> '' instead of 'i')
-COLUMN_NAME_OVERRIDES = {"aktuln_odchylka_mw": "aktualni_odchylka_mw"}
+COLUMN_NAME_OVERRIDES = {
+    "aktuln_odchylka_mw": "aktualni_odchylka_mw",
+    "suma_vmny_s_evropskmi_platformami": "suma_vymeny_s_evropskymi_platformami",
+    "power_mw__energy_mwh": "power_mw_energy_mwh",
+}
+
+# Raw series names that would otherwise collide (+/- is dropped) or get inconsistent units
+RAW_COLUMN_NAME_OVERRIDES = {
+    "aFRR [EUR/MWh]": "afrr_eur_mwh",
+    "mFRR5 [EUR/MWh]": "mfrr5_eur_mwh",
+    "aFRR+ [MW]": "afrr_plus_mw",
+    "aFRR- [MW]": "afrr_minus_mw",
+    "mFRR+ [MW]": "mfrr_plus_mw",
+    "mFRR- [MW]": "mfrr_minus_mw",
+    "mFRR+ [EUR/MWh]": "mfrr_plus_eur_mwh",
+    "mFRR- [EUR/MWh]": "mfrr_minus_eur_mwh",
+}
+
+FILTER_PARAMS = ("para1", "param1", "param2")
 
 
 class CepsClientException(Exception):
@@ -104,6 +122,16 @@ class CepsClient:
         if granularity:
             request_data["agregation"] = granularity
 
+        supported_params = self.get_operation_params(endpoint)
+        if add_para1:
+            request_data.pop("para1")
+            for filter_param in FILTER_PARAMS:
+                if filter_param in supported_params:
+                    request_data[filter_param] = "all"
+        if "agregation" not in supported_params:
+            granularity = None
+        request_data = {key: value for key, value in request_data.items() if key in supported_params}
+
         method_to_call = getattr(self.client.service, endpoint)
         try:
             response = method_to_call(**request_data)
@@ -115,6 +143,8 @@ class CepsClient:
         response_data = xmltodict.parse(xml)
         try:
             data = response_data.get("root").get("data").get("item")
+            if isinstance(data, dict):
+                data = [data]
             field_names = response_data.get("root").get("series").get("serie")
             add_date = True
             if endpoint == "OfferPrices":
@@ -129,6 +159,10 @@ class CepsClient:
             ) from att_exc
 
         return data
+
+    def get_operation_params(self, endpoint):
+        operation = self.client.service._binding._operations[endpoint]
+        return [name for name, _ in operation.input.body.type.elements]
 
     def get_data_version(self, endpoint):
         method_to_call = getattr(self.client.service, endpoint)
@@ -154,8 +188,10 @@ class CepsClient:
         if add_date:
             field_names_dict["@date"] = "date"
         for field_name in field_names:
-            normalized_name = header_normalizer._normalize_column_name(field_name["@name"]).lower()
+            raw_name = field_name["@name"]
+            normalized_name = header_normalizer._normalize_column_name(raw_name).lower()
             normalized_name = COLUMN_NAME_OVERRIDES.get(normalized_name, normalized_name)
+            normalized_name = RAW_COLUMN_NAME_OVERRIDES.get(raw_name, normalized_name)
             field_names_dict["@" + field_name["@id"]] = normalized_name
         return field_names_dict
 

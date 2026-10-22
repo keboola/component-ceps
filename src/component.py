@@ -21,6 +21,9 @@ KEY_CONTINUE_ON_FAIL = "continue_on_fail"
 
 KEY_STATE_ENDPOINT_COLUMNS = "endpoint_columns"
 
+# Fetched in one request: 30-day chunks would cut weeks/months/years and return partial aggregates
+WHOLE_RANGE_GRANULARITIES = ["WE", "MO", "YR"]
+
 # not implemented in UI, for case of further implementation
 KEY_ENDPOINT_FUNCTION = "function"
 
@@ -49,6 +52,9 @@ class Component(ComponentBase):
 
         intervals = self.get_date_intervals(params)
         day_intervals = self.get_date_intervals(params, day_intervals=True)
+        whole_interval = (
+            [{"start_date": intervals[0]["start_date"], "end_date": intervals[-1]["end_date"]}] if intervals else []
+        )
 
         endpoints_to_fetch = params.get(KEY_ENDPOINTS)
 
@@ -61,6 +67,8 @@ class Component(ComponentBase):
 
             if endpoint["endpoint_name"] == "OfferPrices":
                 self.process_endpoint(endpoint, day_intervals, client, continue_on_fail, endpoint_columns)
+            elif endpoint.get(KEY_ENDPOINT_GRANULARITY) in WHOLE_RANGE_GRANULARITIES:
+                self.process_endpoint(endpoint, whole_interval, client, continue_on_fail, endpoint_columns)
             else:
                 self.process_endpoint(endpoint, intervals, client, continue_on_fail, endpoint_columns)
 
@@ -92,18 +100,26 @@ class Component(ComponentBase):
     @staticmethod
     def get_endpoint_p_keys(endpoint_name):
         if endpoint_name in [
+            "AktivaceSVRvCR",
+            "AktualniSystemovaOdchylkaCR",
             "CrossborderPowerFlows",
+            "Emise",
+            "ExportImportSVR",
             "Generation",
             "GenerationPlan",
+            "GenerationRES",
             "Load",
             "RegulationEnergy",
             "RegulationEnergyB",
-            "AktualniSystemovaOdchylkaCR",
         ]:
+            return ["date", "granularity"]
+        elif endpoint_name in ["EmergencyExchange"]:
+            return ["date", "granularity", "border_and_direction", "type_of_exchange"]
+        elif endpoint_name in ["AktualniCenaRE", "Frekvence"]:
             return ["date"]
         elif endpoint_name in ["OdhadovanaCenaOdchylky"]:
             return ["interval", "date"]
-        elif endpoint_name in ["OfferPrices"]:
+        elif endpoint_name in ["OfferPrices", "NepredvidatelneOdmitnuteNabidky"]:
             return ["hour", "date", "unit"]
 
     @staticmethod

@@ -1,0 +1,23 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "Frekvence.csv": {
+      "columns": [
+        "date",
+        "frekvence_hz",
+        "granularity"
+      ],
+      "hash": "sha256:54054e7340bfbc823572e7af4cfc90e2c1832ae4b35ac699ccd3a114ac8ab9a0",
+      "row_count": 1442,
+      "size_bytes": 51656
+    },
+    "Frekvence.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:b94b4a2d7b64fc9244473b52d0026c65133936ef91d9923f9478baaac46905d4",
+      "row_count": null,
+      "size_bytes": 609
+    }
+  },
+  "version": "1.0"
+}

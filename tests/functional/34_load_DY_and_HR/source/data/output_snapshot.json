@@ -1,0 +1,24 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "Load.csv": {
+      "columns": [
+        "date",
+        "load_including_pumping_mw",
+        "load_mw",
+        "granularity"
+      ],
+      "hash": "sha256:44939a62bb0665667f618e1b101ad7408885b9cbc4d9dd5fd80e9d462d6a349e",
+      "row_count": 53,
+      "size_bytes": 2454
+    },
+    "Load.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:4e34987f23d1ef0aa1cad7159c662bdc7f856db916c038567d8b501435825135",
+      "row_count": null,
+      "size_bytes": 795
+    }
+  },
+  "version": "1.0"
+}

@@ -361,5 +361,104 @@
         "endpoints": [{"endpoint_name": "CrossborderPowerFlows", "granularity": "QH"}]
       }
     }
+  },
+  {
+    "name": "34_load_DY_and_HR",
+    "description": "Load with DY and HR granularity in one config (both land in Load.csv, PK date+granularity)",
+    "config": {
+      "parameters": {
+        "date_from": "2026-10-01",
+        "date_to": "2026-10-03",
+        "endpoints": [{"endpoint_name": "Load", "granularity": "DY"}, {"endpoint_name": "Load", "granularity": "HR"}]
+      }
+    }
+  },
+  {
+    "name": "35_aktivace_svr_QH",
+    "description": "AktivaceSVRvCR with QH granularity (param1)",
+    "config": {
+      "parameters": {
+        "date_from": "2026-10-01",
+        "date_to": "2026-10-02",
+        "endpoints": [{"endpoint_name": "AktivaceSVRvCR", "granularity": "QH"}]
+      }
+    }
+  },
+  {
+    "name": "36_aktualni_cena_re_None",
+    "description": "AktualniCenaRE without aggregation (param1 only)",
+    "config": {
+      "parameters": {
+        "date_from": "2026-10-01",
+        "date_to": "2026-10-02",
+        "endpoints": [{"endpoint_name": "AktualniCenaRE", "granularity": "None"}]
+      }
+    }
+  },
+  {
+    "name": "37_emise_QH",
+    "description": "Emise with QH granularity (param1 + version)",
+    "config": {
+      "parameters": {
+        "date_from": "2026-10-01",
+        "date_to": "2026-10-02",
+        "endpoints": [{"endpoint_name": "Emise", "granularity": "QH"}]
+      }
+    }
+  },
+  {
+    "name": "38_emergency_exchange_HR",
+    "description": "EmergencyExchange with HR granularity (param1 + param2)",
+    "config": {
+      "parameters": {
+        "date_from": "2025-01-01",
+        "date_to": "2025-12-31",
+        "endpoints": [{"endpoint_name": "EmergencyExchange", "granularity": "HR"}]
+      }
+    }
+  },
+  {
+    "name": "39_export_import_svr_QH",
+    "description": "ExportImportSVR with QH granularity (param1)",
+    "config": {
+      "parameters": {
+        "date_from": "2026-10-01",
+        "date_to": "2026-10-02",
+        "endpoints": [{"endpoint_name": "ExportImportSVR", "granularity": "QH"}]
+      }
+    }
+  },
+  {
+    "name": "40_frekvence_None",
+    "description": "Frekvence without any parameters",
+    "config": {
+      "parameters": {
+        "date_from": "2026-10-01",
+        "date_to": "2026-10-02",
+        "endpoints": [{"endpoint_name": "Frekvence", "granularity": "None"}]
+      }
+    }
+  },
+  {
+    "name": "41_nepredvidatelne_odmitnute_nabidky_None",
+    "description": "NepredvidatelneOdmitnuteNabidky, one row per hour and unit",
+    "config": {
+      "parameters": {
+        "date_from": "2025-01-01",
+        "date_to": "2025-01-31",
+        "endpoints": [{"endpoint_name": "NepredvidatelneOdmitnuteNabidky", "granularity": "None"}]
+      }
+    }
+  },
+  {
+    "name": "42_generation_res_WE",
+    "description": "GenerationRES with WE granularity",
+    "config": {
+      "parameters": {
+        "date_from": "2025-01-01",
+        "date_to": "2025-03-31",
+        "endpoints": [{"endpoint_name": "GenerationRES", "granularity": "WE"}]
+      }
+    }
   }
 ]

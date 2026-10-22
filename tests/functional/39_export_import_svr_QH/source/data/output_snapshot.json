@@ -1,0 +1,26 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "ExportImportSVR.csv": {
+      "columns": [
+        "date",
+        "imbalancenetting",
+        "mari_mfrr",
+        "picasso_afrr",
+        "suma_vymeny_s_evropskymi_platformami",
+        "granularity"
+      ],
+      "hash": "sha256:d3f169fbf1adbb292db838587f0260d66ef678ae7cf5b9d0b361398bb86266a1",
+      "row_count": 98,
+      "size_bytes": 5894
+    },
+    "ExportImportSVR.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:3d28c2ea5c88656ced3c8d50be02613ad8db5c0f1e38437a818cdb0291b890ee",
+      "row_count": null,
+      "size_bytes": 1114
+    }
+  },
+  "version": "1.0"
+}

@@ -29,12 +29,19 @@
             "type": "string",
             "title": "Endpoint name",
             "enum": [
+              "AktivaceSVRvCR",
+              "AktualniCenaRE",
               "AktualniSystemovaOdchylkaCR",
               "CrossborderPowerFlows",
+              "EmergencyExchange",
+              "Emise",
+              "ExportImportSVR",
+              "Frekvence",
               "Generation",
               "GenerationPlan",
               "GenerationRES",
               "Load",
+              "NepredvidatelneOdmitnuteNabidky",
               "OdhadovanaCenaOdchylky",
               "OfferPrices"
             ],
@@ -44,12 +51,16 @@
             "type": "string",
             "title": "Granularity",
             "enum": [
+              "YR",
+              "MO",
+              "WE",
               "DY",
               "HR",
               "QH",
               "MI",
               "None"
             ],
+            "description": "Ignored by AktualniCenaRE, Frekvence, NepredvidatelneOdmitnuteNabidky, OdhadovanaCenaOdchylky and OfferPrices (use None).",
             "default": "HR"
           }
         }
