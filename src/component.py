@@ -24,6 +24,20 @@ KEY_STATE_ENDPOINT_COLUMNS = "endpoint_columns"
 # Fetched in one request: 30-day chunks would cut weeks/months/years and return partial aggregates
 WHOLE_RANGE_GRANULARITIES = ["WE", "MO", "YR"]
 
+# Granularities that return data, per endpoint (checked against the live API).
+# Endpoints missing here ignore granularity and accept any value.
+SUPPORTED_GRANULARITIES = {
+    "CrossborderPowerFlows": ["MI", "QH", "HR", "DY", "WE", "MO", "YR"],
+    "GenerationRES": ["MI", "QH", "HR", "DY", "WE", "MO", "YR"],
+    "Load": ["MI", "QH", "HR", "DY", "WE", "MO", "YR"],
+    "Generation": ["QH", "HR", "DY", "WE", "MO", "YR"],
+    "GenerationPlan": ["QH", "HR", "DY", "WE", "MO", "YR"],
+    "EmergencyExchange": ["QH", "HR", "DY", "WE", "MO", "YR"],
+    "AktivaceSVRvCR": ["MI", "QH", "HR", "DY"],
+    "ExportImportSVR": ["MI", "QH", "HR", "DY"],
+    "AktualniSystemovaOdchylkaCR": ["MI", "QH", "HR"],
+}
+
 # not implemented in UI, for case of further implementation
 KEY_ENDPOINT_FUNCTION = "function"
 
@@ -58,6 +72,8 @@ class Component(ComponentBase):
 
         endpoints_to_fetch = params.get(KEY_ENDPOINTS)
 
+        self.validate_granularities(endpoints_to_fetch, continue_on_fail)
+
         client = CepsClient()
 
         for endpoint in endpoints_to_fetch:
@@ -67,13 +83,34 @@ class Component(ComponentBase):
 
             if endpoint["endpoint_name"] == "OfferPrices":
                 self.process_endpoint(endpoint, day_intervals, client, continue_on_fail, endpoint_columns)
-            elif endpoint.get(KEY_ENDPOINT_GRANULARITY) in WHOLE_RANGE_GRANULARITIES:
+            elif (
+                endpoint["endpoint_name"] in SUPPORTED_GRANULARITIES
+                and endpoint.get(KEY_ENDPOINT_GRANULARITY) in WHOLE_RANGE_GRANULARITIES
+            ):
                 self.process_endpoint(endpoint, whole_interval, client, continue_on_fail, endpoint_columns)
             else:
                 self.process_endpoint(endpoint, intervals, client, continue_on_fail, endpoint_columns)
 
         self._close_writers()
         self.write_manifests(self.tables)
+
+    @staticmethod
+    def validate_granularities(endpoints: list[dict], continue_on_fail: bool) -> None:
+        invalid = []
+        for endpoint in endpoints:
+            endpoint_name = endpoint.get(KEY_ENDPOINT_NAME)
+            granularity = endpoint.get(KEY_ENDPOINT_GRANULARITY)
+            supported = SUPPORTED_GRANULARITIES.get(endpoint_name)
+            if supported and granularity not in supported:
+                invalid.append(
+                    f'{endpoint_name} does not support granularity "{granularity}". Supported: {", ".join(supported)}.'
+                )
+        if not invalid:
+            return
+        message = " ".join(invalid)
+        if not continue_on_fail:
+            raise UserException(message)
+        logging.warning(f"{message} These endpoints will return no data.")
 
     def process_endpoint(self, endpoint, intervals, client, continue_on_fail, endpoint_columns):
         endpoint_name = endpoint.get(KEY_ENDPOINT_NAME)
