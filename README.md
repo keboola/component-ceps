@@ -16,7 +16,43 @@ Configuration
 
  - Date from (date_from) - [REQ] Date from which to start fetching data e.g. 3 days ago or exact date 2021-01-01
  - Date to (date_to) - [REQ] Date to which data fetching should be performed e.g. 3 days ago or exact date 2021-01-01
- - Endpoints (endpoints) - [REQ] Select list of endpoints and their granularity (MI, HR, QH, DY)
+ - Endpoints (endpoints) - [REQ] Select list of endpoints and their granularity (MI, QH, HR, DY, WE, MO, YR, None)
+
+## Endpoints
+
+| Endpoint | Granularity | Primary key |
+|---|---|---|
+| AktivaceSVRvCR | MI, QH, HR, DY | date, granularity |
+| AktualniCenaRE | None (1-minute data) | date |
+| AktualniSystemovaOdchylkaCR | MI, QH, HR | date, granularity |
+| CrossborderPowerFlows | MI, QH, HR, DY, WE, MO, YR | date, granularity |
+| EmergencyExchange | QH, HR | date, granularity, border_and_direction, type_of_exchange |
+| Emise | QH | date, granularity |
+| ExportImportSVR | MI, QH, HR, DY | date, granularity |
+| Frekvence | None (1-minute data) | date |
+| Generation | QH, HR, DY, WE, MO, YR | date, granularity |
+| GenerationPlan | QH, HR, DY, WE, MO, YR | date, granularity |
+| GenerationRES | MI, QH, HR, DY, WE, MO, YR | date, granularity |
+| Load | MI, QH, HR, DY, WE, MO, YR | date, granularity |
+| NepredvidatelneOdmitnuteNabidky | None | hour, date, unit |
+| OdhadovanaCenaOdchylky | None | interval, date |
+| OfferPrices | None | hour, date, unit |
+
+Not every endpoint supports every granularity. The run checks the selected combinations against the table above before
+downloading anything: with `continue_on_fail` off it fails, otherwise it logs a warning and the endpoint returns no data.
+Endpoints listed with None ignore the granularity, so any value is accepted for them. EmergencyExchange also accepts
+DY, WE, MO and YR (see the note below).
+
+Each endpoint is written to one table named after the endpoint (e.g. `Load`), incrementally. When the same endpoint is
+configured with several granularities, all of them land in that table and are told apart by the `granularity` column.
+
+Notes on the ČEPS API:
+ - WE, MO and YR are fetched in a single request for the whole date range, so periods are not cut into partial aggregates.
+   Endpoints that ignore the granularity are always fetched in 30-day chunks.
+ - EmergencyExchange returns one row per exchange event at DY/WE/MO, so several events of the same border in one period
+   share a primary key. Use QH or HR.
+ - Emise always returns quarter-hour data, whatever granularity is selected.
+ - At WE granularity the API returns the week of the March daylight-saving change several times with different values.
 
 
 
@@ -56,14 +92,6 @@ Sample Configuration
             {
                 "endpoint_name": "OfferPrices",
                 "granularity": "None"
-            },
-            {
-                "endpoint_name": "RegulationEnergy",
-                "granularity": "MI"
-            },
-            {
-                "endpoint_name": "RegulationEnergyB",
-                "granularity": "MI"
             },
             {
                 "endpoint_name": "AktualniSystemovaOdchylkaCR",

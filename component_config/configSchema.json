@@ -29,12 +29,19 @@
             "type": "string",
             "title": "Endpoint name",
             "enum": [
+              "AktivaceSVRvCR",
+              "AktualniCenaRE",
               "AktualniSystemovaOdchylkaCR",
               "CrossborderPowerFlows",
+              "EmergencyExchange",
+              "Emise",
+              "ExportImportSVR",
+              "Frekvence",
               "Generation",
               "GenerationPlan",
               "GenerationRES",
               "Load",
+              "NepredvidatelneOdmitnuteNabidky",
               "OdhadovanaCenaOdchylky",
               "OfferPrices"
             ],
@@ -44,12 +51,16 @@
             "type": "string",
             "title": "Granularity",
             "enum": [
+              "YR",
+              "MO",
+              "WE",
               "DY",
               "HR",
               "QH",
               "MI",
               "None"
             ],
+            "description": "Not every endpoint supports every granularity; unsupported combinations are reported at the start of the run. Supported: Load, GenerationRES, CrossborderPowerFlows: MI–YR. Generation, GenerationPlan, EmergencyExchange: QH–YR. AktivaceSVRvCR, ExportImportSVR: MI–DY. AktualniSystemovaOdchylkaCR: MI–HR. Ignored by AktualniCenaRE, Frekvence (1-minute data), Emise, OdhadovanaCenaOdchylky (15-minute data), NepredvidatelneOdmitnuteNabidky and OfferPrices (use None).",
             "default": "HR"
           }
         }

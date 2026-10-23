@@ -1,0 +1,44 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "NepredvidatelneOdmitnuteNabidky.csv": {
+      "columns": [
+        "date",
+        "hour",
+        "unit",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "granularity"
+      ],
+      "hash": "sha256:b88d1535e2ac2aa978d4b4cd8cfbcef46e3d241ad0cb52a20ce5f05cb1112623",
+      "row_count": 747,
+      "size_bytes": 65960
+    },
+    "NepredvidatelneOdmitnuteNabidky.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:6384705c63a89e6cec0d6427cfe30d31f15ed84c52b28050c04ed93b70f11b71",
+      "row_count": null,
+      "size_bytes": 3608
+    }
+  },
+  "version": "1.0"
+}

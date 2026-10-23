@@ -15,9 +15,9 @@
     },
     "Load.csv.manifest": {
       "columns": null,
-      "hash": "sha256:0809ccabaf1a8fd9be318831e77f1d601e3d067797b3021fdfc4780e715e71c3",
+      "hash": "sha256:689176cad4ef452cc67eecb8f89852e3d29259e01b610e7d071562670692dc5d",
       "row_count": null,
-      "size_bytes": 768
+      "size_bytes": 794
     }
   },
   "version": "1.0"

@@ -1,0 +1,24 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "GenerationRES.csv": {
+      "columns": [
+        "date",
+        "wpp_mw",
+        "pvpp_mw",
+        "granularity"
+      ],
+      "hash": "sha256:41c8a66fe26b8df9fc50cb68664c303fa5b04d33273b0f1187e46b61555d90d3",
+      "row_count": 20,
+      "size_bytes": 771
+    },
+    "GenerationRES.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:2d9207fd30edd6cae5cd37292ebf55170ce36d8c32782525dc695247195a4db7",
+      "row_count": null,
+      "size_bytes": 775
+    }
+  },
+  "version": "1.0"
+}
