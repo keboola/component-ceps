@@ -26,7 +26,7 @@ Configuration
 | AktualniCenaRE | None (1-minute data) | date |
 | AktualniSystemovaOdchylkaCR | MI, QH, HR | date, granularity |
 | CrossborderPowerFlows | MI, QH, HR, DY, WE, MO, YR | date, granularity |
-| EmergencyExchange | QH, HR | date, granularity, border_and_direction, type_of_exchange |
+| EmergencyExchange | QH, HR, DY | date, granularity, border_and_direction, type_of_exchange |
 | Emise | QH | date, granularity |
 | ExportImportSVR | MI, QH, HR, DY | date, granularity |
 | Frekvence | None (1-minute data) | date |
@@ -39,9 +39,8 @@ Configuration
 | OfferPrices | None | hour, date, unit |
 
 Not every endpoint supports every granularity. The run checks the selected combinations against the table above before
-downloading anything: with `continue_on_fail` off it fails, otherwise it logs a warning and the endpoint returns no data.
-Endpoints listed with None ignore the granularity, so any value is accepted for them. EmergencyExchange also accepts
-DY, WE, MO and YR (see the note below).
+downloading anything: with `continue_on_fail` off it fails, otherwise it logs a warning and skips the unsupported
+endpoints. Endpoints listed with None ignore the granularity, so any value is accepted for them.
 
 Each endpoint is written to one table named after the endpoint (e.g. `Load`), incrementally. When the same endpoint is
 configured with several granularities, all of them land in that table and are told apart by the `granularity` column.
@@ -49,8 +48,8 @@ configured with several granularities, all of them land in that table and are to
 Notes on the ČEPS API:
  - WE, MO and YR are fetched in a single request for the whole date range, so periods are not cut into partial aggregates.
    Endpoints that ignore the granularity are always fetched in 30-day chunks.
- - EmergencyExchange returns one row per exchange event at DY/WE/MO, so several events of the same border in one period
-   share a primary key. Use QH or HR.
+ - At WE, MO and YR, EmergencyExchange returns one row per event day dated at the start of the period, so the rows are
+   not unique. Use DY and aggregate it yourself.
  - Emise always returns quarter-hour data, whatever granularity is selected.
  - At WE granularity the API returns the week of the March daylight-saving change several times with different values.
 

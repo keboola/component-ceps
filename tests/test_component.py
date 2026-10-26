@@ -41,11 +41,20 @@ class TestComponent(unittest.TestCase):
         endpoints = [
             {"endpoint_name": "Generation", "granularity": "MI"},
             {"endpoint_name": "Load", "granularity": "None"},
+            {"endpoint_name": "Load", "granularity": "HR"},
         ]
         with self.assertLogs(level="WARNING") as logs:
-            Component.validate_granularities(endpoints, continue_on_fail=True)
+            valid = Component.validate_granularities(endpoints, continue_on_fail=True)
         self.assertIn('Generation does not support granularity "MI"', logs.output[0])
         self.assertIn('Load does not support granularity "None"', logs.output[0])
+        self.assertIn("These endpoints are skipped.", logs.output[0])
+        self.assertEqual(valid, [{"endpoint_name": "Load", "granularity": "HR"}])
+
+    def test_validate_granularities_emergency_exchange_period_granularities_unsupported(self):
+        for granularity in ["WE", "MO", "YR"]:
+            endpoints = [{"endpoint_name": "EmergencyExchange", "granularity": granularity}]
+            with self.assertRaisesRegex(UserException, "Supported: QH, HR, DY."):
+                Component.validate_granularities(endpoints, continue_on_fail=False)
 
 
 if __name__ == "__main__":

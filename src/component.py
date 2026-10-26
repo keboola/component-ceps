@@ -32,7 +32,7 @@ SUPPORTED_GRANULARITIES = {
     "Load": ["MI", "QH", "HR", "DY", "WE", "MO", "YR"],
     "Generation": ["QH", "HR", "DY", "WE", "MO", "YR"],
     "GenerationPlan": ["QH", "HR", "DY", "WE", "MO", "YR"],
-    "EmergencyExchange": ["QH", "HR", "DY", "WE", "MO", "YR"],
+    "EmergencyExchange": ["QH", "HR", "DY"],
     "AktivaceSVRvCR": ["MI", "QH", "HR", "DY"],
     "ExportImportSVR": ["MI", "QH", "HR", "DY"],
     "AktualniSystemovaOdchylkaCR": ["MI", "QH", "HR"],
@@ -72,7 +72,7 @@ class Component(ComponentBase):
 
         endpoints_to_fetch = params.get(KEY_ENDPOINTS)
 
-        self.validate_granularities(endpoints_to_fetch, continue_on_fail)
+        endpoints_to_fetch = self.validate_granularities(endpoints_to_fetch, continue_on_fail)
 
         client = CepsClient()
 
@@ -95,7 +95,9 @@ class Component(ComponentBase):
         self.write_manifests(self.tables)
 
     @staticmethod
-    def validate_granularities(endpoints: list[dict], continue_on_fail: bool) -> None:
+    def validate_granularities(endpoints: list[dict], continue_on_fail: bool) -> list[dict]:
+        """Returns the endpoints with a supported granularity."""
+        valid = []
         invalid = []
         for endpoint in endpoints:
             endpoint_name = endpoint.get(KEY_ENDPOINT_NAME)
@@ -105,12 +107,14 @@ class Component(ComponentBase):
                 invalid.append(
                     f'{endpoint_name} does not support granularity "{granularity}". Supported: {", ".join(supported)}.'
                 )
-        if not invalid:
-            return
-        message = " ".join(invalid)
-        if not continue_on_fail:
-            raise UserException(message)
-        logging.warning(f"{message} These endpoints will return no data.")
+            else:
+                valid.append(endpoint)
+        if invalid:
+            message = " ".join(invalid)
+            if not continue_on_fail:
+                raise UserException(message)
+            logging.warning(f"{message} These endpoints are skipped.")
+        return valid
 
     def process_endpoint(self, endpoint, intervals, client, continue_on_fail, endpoint_columns):
         endpoint_name = endpoint.get(KEY_ENDPOINT_NAME)
