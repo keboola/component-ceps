@@ -60,7 +60,6 @@
               "MI",
               "None"
             ],
-            "description": "Not every endpoint supports every granularity; unsupported combinations are reported at the start of the run. Supported: Load, GenerationRES, CrossborderPowerFlows: MI–YR. Generation, GenerationPlan, EmergencyExchange: QH–YR. AktivaceSVRvCR, ExportImportSVR: MI–DY. AktualniSystemovaOdchylkaCR: MI–HR. Ignored by AktualniCenaRE, Frekvence (1-minute data), Emise, OdhadovanaCenaOdchylky (15-minute data), NepredvidatelneOdmitnuteNabidky and OfferPrices (use None).",
             "default": "HR"
           }
         }
@@ -94,7 +93,12 @@
           "endpoint_name": "OfferPrices",
           "granularity": "None"
         }
-      ]
+      ],
+      "description": "Not every endpoint supports every granularity. Unsupported combinations return no data and are reported as a warning at the start of the run.",
+      "options": {
+        "tooltip": "**Supported combinations**\n\n**MI, QH, HR, DY, WE, MO, YR:** Load, GenerationRES, CrossborderPowerFlows\n\n**QH, HR, DY, WE, MO, YR:** Generation, GenerationPlan, EmergencyExchange\n\n**MI, QH, HR, DY:** AktivaceSVRvCR, ExportImportSVR\n\n**MI, QH, HR:** AktualniSystemovaOdchylkaCR\n\n**Granularity ignored (use None):** AktualniCenaRE, Frekvence, Emise, OdhadovanaCenaOdchylky, NepredvidatelneOdmitnuteNabidky, OfferPrices",
+        "tooltip_placement": "description"
+      }
     }
   }
 }
