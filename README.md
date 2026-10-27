@@ -56,8 +56,9 @@ Notes on the ČEPS API:
 Upgrading from 0.1.x:
  - The primary key of existing tables changes from `date` to `date, granularity` on the next run.
  - GenerationRES had no primary key, so an existing GenerationRES table may contain duplicate rows. Storage cannot
-   create a primary key on a table with duplicates, and the run fails. Delete the GenerationRES table (or remove the
-   duplicates) once, then run the configuration again.
+   create a primary key on a table with duplicates. The run still succeeds, but the job log shows "The new primary key
+   cannot be created; duplicate values in primary key columns exist" and new rows keep being appended as duplicates.
+   Delete the GenerationRES table (or remove the duplicates) once, then run the configuration again.
  - Versions 0.1.5 and 0.1.6 loaded the CSV header as a data row. Remove those rows with `granularity = 'granularity'`.
 
 
