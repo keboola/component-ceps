@@ -53,6 +53,13 @@ Notes on the ČEPS API:
  - Emise always returns quarter-hour data, whatever granularity is selected.
  - At WE granularity the API returns the week of the March daylight-saving change several times with different values.
 
+Upgrading from 0.1.x:
+ - The primary key of existing tables changes from `date` to `date, granularity` on the next run.
+ - GenerationRES had no primary key, so an existing GenerationRES table may contain duplicate rows. Storage cannot
+   create a primary key on a table with duplicates, and the run fails. Delete the GenerationRES table (or remove the
+   duplicates) once, then run the configuration again.
+ - Versions 0.1.5 and 0.1.6 loaded the CSV header as a data row. Remove those rows with `granularity = 'granularity'`.
+
 
 
 
