@@ -19,15 +19,15 @@
         "apg_planned_mw",
         "granularity"
       ],
-      "hash": "sha256:cd51aa55b8cfd07b68785f927d2a32e7c51a055866a21390910964b5b46b222b",
+      "hash": "sha256:71e85bdc0d13d00ab825b4a6f83148d2eb31f94747907768d81c5c05e6fa25e6",
       "row_count": 2791,
-      "size_bytes": 374979
+      "size_bytes": 374930
     },
     "CrossborderPowerFlows.csv.manifest": {
       "columns": null,
-      "hash": "sha256:abd8cfc5adc3c8c10b30871dc825c495ab7269c101a956d2f198d610800bca90",
+      "hash": "sha256:069d9cc857036e915dde9f6a638996208849641dfd15c58b4e8c0b1e3e746b30",
       "row_count": null,
-      "size_bytes": 2328
+      "size_bytes": 2301
     }
   },
   "version": "1.0"

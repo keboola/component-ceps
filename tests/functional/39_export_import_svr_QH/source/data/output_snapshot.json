@@ -17,9 +17,9 @@
     },
     "ExportImportSVR.csv.manifest": {
       "columns": null,
-      "hash": "sha256:a4e584828f0855c1507a0109633c4768f42158441aa280414119c77f6b6f182e",
+      "hash": "sha256:a6cf5938cb405473616389dc825d12dd5bf3e7e941903c7a80628431a0ba5181",
       "row_count": null,
-      "size_bytes": 1113
+      "size_bytes": 1086
     }
   },
   "version": "1.0"

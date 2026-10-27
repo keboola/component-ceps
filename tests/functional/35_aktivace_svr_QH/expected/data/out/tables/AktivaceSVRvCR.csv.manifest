@@ -67,8 +67,7 @@
           "type": "STRING"
         }
       },
-      "nullable": true,
-      "primary_key": true
+      "nullable": true
     }
   ]
 }

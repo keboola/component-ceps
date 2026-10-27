@@ -16,9 +16,9 @@
     },
     "EmergencyExchange.csv.manifest": {
       "columns": null,
-      "hash": "sha256:1236d9d83b6aed8a0e71835fab57ed14b2b8d247c4e4e8f2f8e2b3fcdac50230",
+      "hash": "sha256:32bda295e5672bcbc57b7d3de8cee70a979e6a0db6cf0239f6e9c641c0bb47a2",
       "row_count": null,
-      "size_bytes": 1010
+      "size_bytes": 983
     }
   },
   "version": "1.0"

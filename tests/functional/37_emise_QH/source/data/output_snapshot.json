@@ -14,9 +14,9 @@
     },
     "Emise.csv.manifest": {
       "columns": null,
-      "hash": "sha256:0e06675eb7eb8feca7d6311d4bd26619a7ed04fa08a6fe24e0b1d3d14526f220",
+      "hash": "sha256:370a8cf72956d0e7fd50028d192ea666ab4b63541686528b5dd9095589c0b2c7",
       "row_count": null,
-      "size_bytes": 637
+      "size_bytes": 610
     }
   },
   "version": "1.0"

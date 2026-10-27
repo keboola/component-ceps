@@ -364,7 +364,7 @@
   },
   {
     "name": "34_load_DY_and_HR",
-    "description": "Load with DY and HR granularity in one config (both land in Load.csv, PK date+granularity)",
+    "description": "Load with DY and HR granularity in one config (both land in Load.csv; PK is date, so Storage keeps one row where the timestamps match)",
     "config": {
       "parameters": {
         "date_from": "2026-10-01",

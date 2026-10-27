@@ -25,9 +25,9 @@
     },
     "CrossborderPowerFlows.csv.manifest": {
       "columns": null,
-      "hash": "sha256:abd8cfc5adc3c8c10b30871dc825c495ab7269c101a956d2f198d610800bca90",
+      "hash": "sha256:069d9cc857036e915dde9f6a638996208849641dfd15c58b4e8c0b1e3e746b30",
       "row_count": null,
-      "size_bytes": 2328
+      "size_bytes": 2301
     }
   },
   "version": "1.0"

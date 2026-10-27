@@ -153,12 +153,12 @@ class Component(ComponentBase):
             "Load",
             "RegulationEnergy",
             "RegulationEnergyB",
+            "AktualniCenaRE",
+            "Frekvence",
         ]:
-            return ["date", "granularity"]
-        elif endpoint_name in ["EmergencyExchange"]:
-            return ["date", "granularity", "border_and_direction", "type_of_exchange"]
-        elif endpoint_name in ["AktualniCenaRE", "Frekvence"]:
             return ["date"]
+        elif endpoint_name in ["EmergencyExchange"]:
+            return ["date", "border_and_direction", "type_of_exchange"]
         elif endpoint_name in ["OdhadovanaCenaOdchylky"]:
             return ["interval", "date"]
         elif endpoint_name in ["OfferPrices", "NepredvidatelneOdmitnuteNabidky"]:

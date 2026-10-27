@@ -22,18 +22,18 @@ Configuration
 
 | Endpoint | Granularity | Primary key |
 |---|---|---|
-| AktivaceSVRvCR | MI, QH, HR, DY | date, granularity |
+| AktivaceSVRvCR | MI, QH, HR, DY | date |
 | AktualniCenaRE | None (1-minute data) | date |
-| AktualniSystemovaOdchylkaCR | MI, QH, HR | date, granularity |
-| CrossborderPowerFlows | MI, QH, HR, DY, WE, MO, YR | date, granularity |
-| EmergencyExchange | QH, HR, DY | date, granularity, border_and_direction, type_of_exchange |
-| Emise | QH | date, granularity |
-| ExportImportSVR | MI, QH, HR, DY | date, granularity |
+| AktualniSystemovaOdchylkaCR | MI, QH, HR | date |
+| CrossborderPowerFlows | MI, QH, HR, DY, WE, MO, YR | date |
+| EmergencyExchange | QH, HR, DY | date, border_and_direction, type_of_exchange |
+| Emise | QH | date |
+| ExportImportSVR | MI, QH, HR, DY | date |
 | Frekvence | None (1-minute data) | date |
-| Generation | QH, HR, DY, WE, MO, YR | date, granularity |
-| GenerationPlan | QH, HR, DY, WE, MO, YR | date, granularity |
-| GenerationRES | MI, QH, HR, DY, WE, MO, YR | date, granularity |
-| Load | MI, QH, HR, DY, WE, MO, YR | date, granularity |
+| Generation | QH, HR, DY, WE, MO, YR | date |
+| GenerationPlan | QH, HR, DY, WE, MO, YR | date |
+| GenerationRES | MI, QH, HR, DY, WE, MO, YR | date |
+| Load | MI, QH, HR, DY, WE, MO, YR | date |
 | NepredvidatelneOdmitnuteNabidky | None | hour, date, unit |
 | OdhadovanaCenaOdchylky | None | interval, date |
 | OfferPrices | None | hour, date, unit |
@@ -42,8 +42,10 @@ Not every endpoint supports every granularity. The run checks the selected combi
 downloading anything: with `continue_on_fail` off it fails, otherwise it logs a warning and skips the unsupported
 endpoints. Endpoints listed with None ignore the granularity, so any value is accepted for them.
 
-Each endpoint is written to one table named after the endpoint (e.g. `Load`), incrementally. When the same endpoint is
-configured with several granularities, all of them land in that table and are told apart by the `granularity` column.
+Each endpoint is written to one table named after the endpoint (e.g. `Load`), incrementally. The primary key does not
+contain the granularity, so select each endpoint with one granularity per configuration. If you need several
+granularities of one endpoint, use one configuration for each granularity. Otherwise rows with the same timestamp
+overwrite each other.
 
 Notes on the ČEPS API:
  - WE, MO and YR are fetched in a single request for the whole date range, so periods are not cut into partial aggregates.
@@ -54,7 +56,6 @@ Notes on the ČEPS API:
  - At WE granularity the API returns the week of the March daylight-saving change several times with different values.
 
 Upgrading from 0.1.x:
- - The primary key of existing tables changes from `date` to `date, granularity` on the next run.
  - GenerationRES had no primary key, so an existing GenerationRES table may contain duplicate rows. Storage cannot
    create a primary key on a table with duplicates. The run still succeeds, but the job log shows "The new primary key
    cannot be created; duplicate values in primary key columns exist" and new rows keep being appended as duplicates.
