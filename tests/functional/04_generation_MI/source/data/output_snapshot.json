@@ -1,31 +1,6 @@
 {
   "files": {},
   "hash_algorithm": "sha256",
-  "tables": {
-    "Generation.csv": {
-      "columns": [
-        "date",
-        "wpp_mw",
-        "npp_mw",
-        "pvpp_mw",
-        "ccgt_mw",
-        "altpp_mw",
-        "pspp_mw",
-        "hpp_mw",
-        "appp_mw",
-        "tpp_mw",
-        "granularity"
-      ],
-      "hash": "sha256:1da428867ed6802781eebed3e4f1781168821ee02c417515e471309f16fe6a74",
-      "row_count": 1,
-      "size_bytes": 86
-    },
-    "Generation.csv.manifest": {
-      "columns": null,
-      "hash": "sha256:42b5e539ae97e3a2f0e4f3c25d6591d0cf7d7c3a5fc6af8611d3182ba5522cb6",
-      "row_count": null,
-      "size_bytes": 1795
-    }
-  },
+  "tables": {},
   "version": "1.0"
 }

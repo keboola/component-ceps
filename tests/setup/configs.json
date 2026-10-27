@@ -276,11 +276,11 @@
   },
   {
     "name": "26_offer_prices",
-    "description": "OfferPrices with no granularity",
+    "description": "OfferPrices with no granularity; old date range on purpose because the endpoint stopped publishing data around 2022 (newer dates return empty data)",
     "config": {
       "parameters": {
-        "date_from": "2026-01-01",
-        "date_to": "2026-02-28",
+        "date_from": "2020-06-01",
+        "date_to": "2020-06-03",
         "endpoints": [{"endpoint_name": "OfferPrices", "granularity": "None"}]
       }
     }

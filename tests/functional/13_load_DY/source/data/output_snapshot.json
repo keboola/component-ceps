@@ -9,9 +9,9 @@
         "load_mw",
         "granularity"
       ],
-      "hash": "sha256:eef8243af105ffbaffcf083ebeb85e2745db38b65ef0ae059f987d951bdfec19",
+      "hash": "sha256:37a33f081445f0bedf76b102897cb52d93f4dabd807df41aa9b50adcd3472875",
       "row_count": 61,
-      "size_bytes": 2863
+      "size_bytes": 2861
     },
     "Load.csv.manifest": {
       "columns": null,

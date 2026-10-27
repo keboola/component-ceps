@@ -29,9 +29,9 @@
         "20",
         "granularity"
       ],
-      "hash": "sha256:8faeaeea948e2406ed17a7608b50c6d5836eb7d8dcd6490d25ea3b26eacb0cdc",
-      "row_count": 1,
-      "size_bytes": 78
+      "hash": "sha256:a92564fdc92a947f6a6661f2a87691d26062e072abce3e1b2151ab423660e6bf",
+      "row_count": 101,
+      "size_bytes": 9849
     },
     "OfferPrices.csv.manifest": {
       "columns": null,

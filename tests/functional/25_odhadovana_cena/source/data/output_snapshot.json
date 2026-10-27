@@ -10,9 +10,9 @@
         "estimated_price_kmwh",
         "granularity"
       ],
-      "hash": "sha256:239486ce22ebc6df50a14c83a49686e545f546e12b4aa08fee8c91f3db381d41",
+      "hash": "sha256:fd8f626a23e15e99783ba44e9af757c8369deb0ed431bba42371cd16e0185acb",
       "row_count": 5571,
-      "size_bytes": 285314
+      "size_bytes": 279743
     },
     "OdhadovanaCenaOdchylky.csv.manifest": {
       "columns": null,
