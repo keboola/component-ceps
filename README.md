@@ -32,7 +32,7 @@ Configuration
 | Frekvence | None (1-minute data) | date |
 | Generation | QH, HR, DY, WE, MO, YR | date |
 | GenerationPlan | QH, HR, DY, WE, MO, YR | date |
-| GenerationRES | MI, QH, HR, DY, WE, MO, YR | date |
+| GenerationRES | MI, QH, HR, DY, WE, MO, YR | date, granularity |
 | Load | MI, QH, HR, DY, WE, MO, YR | date |
 | NepredvidatelneOdmitnuteNabidky | None | hour, date, unit |
 | OdhadovanaCenaOdchylky | None | interval, date |
@@ -56,10 +56,14 @@ Notes on the ČEPS API:
  - At WE granularity the API returns the week of the March daylight-saving change several times with different values.
 
 Upgrading from 0.1.x:
- - GenerationRES had no primary key, so an existing GenerationRES table may contain duplicate rows. Storage cannot
-   create a primary key on a table with duplicates. The run still succeeds, but the job log shows "The new primary key
-   cannot be created; duplicate values in primary key columns exist" and new rows keep being appended as duplicates.
-   Delete the GenerationRES table (or remove the duplicates) once, then run the configuration again.
+ - GenerationRES had no primary key, so an existing GenerationRES table may contain duplicate rows. It now uses
+   `date, granularity`. Storage cannot create a primary key on a table with duplicates. The run still succeeds, but the
+   job log shows "The new primary key cannot be created; duplicate values in primary key columns exist" and new rows
+   keep being appended as duplicates. Delete the GenerationRES table (or remove the duplicates) once, then run the
+   configuration again.
+ - `granularity` is in the GenerationRES key because one endpoint configured with several granularities writes to one
+   table. With `date` alone, the rows of two granularities that share a timestamp overwrite each other. No other
+   endpoint changes its key, so no other existing table is affected.
  - Versions 0.1.5 and 0.1.6 loaded the CSV header as a data row. Remove those rows with `granularity = 'granularity'`.
 
 

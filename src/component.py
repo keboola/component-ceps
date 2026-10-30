@@ -149,7 +149,6 @@ class Component(ComponentBase):
             "ExportImportSVR",
             "Generation",
             "GenerationPlan",
-            "GenerationRES",
             "Load",
             "RegulationEnergy",
             "RegulationEnergyB",
@@ -157,6 +156,8 @@ class Component(ComponentBase):
             "Frekvence",
         ]:
             return ["date"]
+        elif endpoint_name in ["GenerationRES"]:
+            return ["date", "granularity"]
         elif endpoint_name in ["EmergencyExchange"]:
             return ["date", "border_and_direction", "type_of_exchange"]
         elif endpoint_name in ["OdhadovanaCenaOdchylky"]:
