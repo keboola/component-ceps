@@ -1,0 +1,25 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "EmergencyExchange.csv": {
+      "columns": [
+        "date",
+        "border_and_direction",
+        "type_of_exchange",
+        "power_mw_energy_mwh",
+        "granularity"
+      ],
+      "hash": "sha256:4fa0ce6e8a13af5445ce152b3562ce6b0be45c9dcf1fdcfd9302341abc94df29",
+      "row_count": 45,
+      "size_bytes": 2281
+    },
+    "EmergencyExchange.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:32bda295e5672bcbc57b7d3de8cee70a979e6a0db6cf0239f6e9c641c0bb47a2",
+      "row_count": null,
+      "size_bytes": 983
+    }
+  },
+  "version": "1.0"
+}

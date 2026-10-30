@@ -21,6 +21,23 @@ KEY_CONTINUE_ON_FAIL = "continue_on_fail"
 
 KEY_STATE_ENDPOINT_COLUMNS = "endpoint_columns"
 
+# Fetched in one request: 30-day chunks would cut weeks/months/years and return partial aggregates
+WHOLE_RANGE_GRANULARITIES = ["WE", "MO", "YR"]
+
+# Granularities that return data, per endpoint (checked against the live API).
+# Endpoints missing here ignore granularity and accept any value.
+SUPPORTED_GRANULARITIES = {
+    "CrossborderPowerFlows": ["MI", "QH", "HR", "DY", "WE", "MO", "YR"],
+    "GenerationRES": ["MI", "QH", "HR", "DY", "WE", "MO", "YR"],
+    "Load": ["MI", "QH", "HR", "DY", "WE", "MO", "YR"],
+    "Generation": ["QH", "HR", "DY", "WE", "MO", "YR"],
+    "GenerationPlan": ["QH", "HR", "DY", "WE", "MO", "YR"],
+    "EmergencyExchange": ["QH", "HR", "DY"],
+    "AktivaceSVRvCR": ["MI", "QH", "HR", "DY"],
+    "ExportImportSVR": ["MI", "QH", "HR", "DY"],
+    "AktualniSystemovaOdchylkaCR": ["MI", "QH", "HR"],
+}
+
 # not implemented in UI, for case of further implementation
 KEY_ENDPOINT_FUNCTION = "function"
 
@@ -49,8 +66,13 @@ class Component(ComponentBase):
 
         intervals = self.get_date_intervals(params)
         day_intervals = self.get_date_intervals(params, day_intervals=True)
+        whole_interval = (
+            [{"start_date": intervals[0]["start_date"], "end_date": intervals[-1]["end_date"]}] if intervals else []
+        )
 
         endpoints_to_fetch = params.get(KEY_ENDPOINTS)
+
+        endpoints_to_fetch = self.validate_granularities(endpoints_to_fetch, continue_on_fail)
 
         client = CepsClient()
 
@@ -61,11 +83,38 @@ class Component(ComponentBase):
 
             if endpoint["endpoint_name"] == "OfferPrices":
                 self.process_endpoint(endpoint, day_intervals, client, continue_on_fail, endpoint_columns)
+            elif (
+                endpoint["endpoint_name"] in SUPPORTED_GRANULARITIES
+                and endpoint.get(KEY_ENDPOINT_GRANULARITY) in WHOLE_RANGE_GRANULARITIES
+            ):
+                self.process_endpoint(endpoint, whole_interval, client, continue_on_fail, endpoint_columns)
             else:
                 self.process_endpoint(endpoint, intervals, client, continue_on_fail, endpoint_columns)
 
         self._close_writers()
         self.write_manifests(self.tables)
+
+    @staticmethod
+    def validate_granularities(endpoints: list[dict], continue_on_fail: bool) -> list[dict]:
+        """Returns the endpoints with a supported granularity."""
+        valid = []
+        invalid = []
+        for endpoint in endpoints:
+            endpoint_name = endpoint.get(KEY_ENDPOINT_NAME)
+            granularity = endpoint.get(KEY_ENDPOINT_GRANULARITY)
+            supported = SUPPORTED_GRANULARITIES.get(endpoint_name)
+            if supported and granularity not in supported:
+                invalid.append(
+                    f'{endpoint_name} does not support granularity "{granularity}". Supported: {", ".join(supported)}.'
+                )
+            else:
+                valid.append(endpoint)
+        if invalid:
+            message = " ".join(invalid)
+            if not continue_on_fail:
+                raise UserException(message)
+            logging.warning(f"{message} These endpoints are skipped.")
+        return valid
 
     def process_endpoint(self, endpoint, intervals, client, continue_on_fail, endpoint_columns):
         endpoint_name = endpoint.get(KEY_ENDPOINT_NAME)
@@ -75,6 +124,7 @@ class Component(ComponentBase):
             f"{endpoint_name}.csv",
             incremental=True,
             enclosure="",
+            has_header=True,
             schema=endpoint_columns,
             primary_key=self.get_endpoint_p_keys(endpoint_name),
         )
@@ -92,18 +142,27 @@ class Component(ComponentBase):
     @staticmethod
     def get_endpoint_p_keys(endpoint_name):
         if endpoint_name in [
+            "AktivaceSVRvCR",
+            "AktualniSystemovaOdchylkaCR",
             "CrossborderPowerFlows",
+            "Emise",
+            "ExportImportSVR",
             "Generation",
             "GenerationPlan",
             "Load",
             "RegulationEnergy",
             "RegulationEnergyB",
-            "AktualniSystemovaOdchylkaCR",
+            "AktualniCenaRE",
+            "Frekvence",
         ]:
             return ["date"]
+        elif endpoint_name in ["GenerationRES"]:
+            return ["date", "granularity"]
+        elif endpoint_name in ["EmergencyExchange"]:
+            return ["date", "border_and_direction", "type_of_exchange"]
         elif endpoint_name in ["OdhadovanaCenaOdchylky"]:
             return ["interval", "date"]
-        elif endpoint_name in ["OfferPrices"]:
+        elif endpoint_name in ["OfferPrices", "NepredvidatelneOdmitnuteNabidky"]:
             return ["hour", "date", "unit"]
 
     @staticmethod

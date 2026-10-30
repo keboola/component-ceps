@@ -1,0 +1,27 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "AktivaceSVRvCR.csv": {
+      "columns": [
+        "date",
+        "afrr_plus_mw",
+        "afrr_minus_mw",
+        "mfrr_plus_mw",
+        "mfrr_minus_mw",
+        "mfrr5_mw",
+        "granularity"
+      ],
+      "hash": "sha256:a342aee4903142b038d4cefdf873a05ee62ca4abc836c882c6ba4efc40cb7889",
+      "row_count": 98,
+      "size_bytes": 5404
+    },
+    "AktivaceSVRvCR.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:08b5d2f801575f80efaa45eca709f607e7f809f632fd8ba531a5e613fe2c557a",
+      "row_count": null,
+      "size_bytes": 1210
+    }
+  },
+  "version": "1.0"
+}

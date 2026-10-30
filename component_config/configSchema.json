@@ -29,12 +29,19 @@
             "type": "string",
             "title": "Endpoint name",
             "enum": [
+              "AktivaceSVRvCR",
+              "AktualniCenaRE",
               "AktualniSystemovaOdchylkaCR",
               "CrossborderPowerFlows",
+              "EmergencyExchange",
+              "Emise",
+              "ExportImportSVR",
+              "Frekvence",
               "Generation",
               "GenerationPlan",
               "GenerationRES",
               "Load",
+              "NepredvidatelneOdmitnuteNabidky",
               "OdhadovanaCenaOdchylky",
               "OfferPrices"
             ],
@@ -44,6 +51,9 @@
             "type": "string",
             "title": "Granularity",
             "enum": [
+              "YR",
+              "MO",
+              "WE",
               "DY",
               "HR",
               "QH",
@@ -83,7 +93,12 @@
           "endpoint_name": "OfferPrices",
           "granularity": "None"
         }
-      ]
+      ],
+      "description": "Not every endpoint supports every granularity. Unsupported combinations are skipped and reported as a warning at the start of the run.",
+      "options": {
+        "tooltip": "**Supported combinations**\n\n**MI, QH, HR, DY, WE, MO, YR:** Load, GenerationRES, CrossborderPowerFlows\n\n**QH, HR, DY, WE, MO, YR:** Generation, GenerationPlan\n\n**QH, HR, DY:** EmergencyExchange\n\n**MI, QH, HR, DY:** AktivaceSVRvCR, ExportImportSVR\n\n**MI, QH, HR:** AktualniSystemovaOdchylkaCR\n\n**Granularity ignored (use None):** AktualniCenaRE, Frekvence, Emise, OdhadovanaCenaOdchylky, NepredvidatelneOdmitnuteNabidky, OfferPrices",
+        "tooltip_placement": "description"
+      }
     }
   }
 }

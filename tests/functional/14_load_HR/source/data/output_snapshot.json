@@ -9,15 +9,15 @@
         "load_mw",
         "granularity"
       ],
-      "hash": "sha256:0dc633e2891198b01ca5c275d656345382c2207272c18f93c4f9fcea257837b0",
+      "hash": "sha256:869d7a27602d6611648a2f8aa545ada07d823cb70b8dabdbe21fb81944600289",
       "row_count": 1395,
-      "size_bytes": 64391
+      "size_bytes": 64389
     },
     "Load.csv.manifest": {
       "columns": null,
-      "hash": "sha256:0809ccabaf1a8fd9be318831e77f1d601e3d067797b3021fdfc4780e715e71c3",
+      "hash": "sha256:113e608a3a3a797e2f17760073c5fec5b141725a594e3f7f4adbe7acb3fb9f6d",
       "row_count": null,
-      "size_bytes": 768
+      "size_bytes": 767
     }
   },
   "version": "1.0"

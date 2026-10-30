@@ -3,7 +3,7 @@
   "write_always": false,
   "delimiter": ",",
   "manifest_type": "out",
-  "has_header": false,
+  "has_header": true,
   "schema": [
     {
       "name": "date",
@@ -16,7 +16,16 @@
       "primary_key": true
     },
     {
-      "name": "generation_plan_mw",
+      "name": "load_including_pumping_mw",
+      "data_type": {
+        "base": {
+          "type": "STRING"
+        }
+      },
+      "nullable": true
+    },
+    {
+      "name": "load_mw",
       "data_type": {
         "base": {
           "type": "STRING"

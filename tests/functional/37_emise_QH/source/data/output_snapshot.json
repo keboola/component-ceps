@@ -1,0 +1,23 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "Emise.csv": {
+      "columns": [
+        "date",
+        "emise_g_co2kwh",
+        "granularity"
+      ],
+      "hash": "sha256:f617334dccd9d5d5bec3ff32c8f241d01eacb28112a783718e5012fd88a03b6f",
+      "row_count": 98,
+      "size_bytes": 3233
+    },
+    "Emise.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:370a8cf72956d0e7fd50028d192ea666ab4b63541686528b5dd9095589c0b2c7",
+      "row_count": null,
+      "size_bytes": 610
+    }
+  },
+  "version": "1.0"
+}

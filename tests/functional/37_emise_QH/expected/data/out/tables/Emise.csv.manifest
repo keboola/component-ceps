@@ -3,7 +3,7 @@
   "write_always": false,
   "delimiter": ",",
   "manifest_type": "out",
-  "has_header": false,
+  "has_header": true,
   "schema": [
     {
       "name": "date",
@@ -16,7 +16,7 @@
       "primary_key": true
     },
     {
-      "name": "aktualni_odchylka_mw",
+      "name": "emise_g_co2kwh",
       "data_type": {
         "base": {
           "type": "STRING"

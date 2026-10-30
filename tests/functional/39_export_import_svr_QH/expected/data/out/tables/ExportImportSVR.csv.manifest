@@ -3,7 +3,7 @@
   "write_always": false,
   "delimiter": ",",
   "manifest_type": "out",
-  "has_header": false,
+  "has_header": true,
   "schema": [
     {
       "name": "date",
@@ -16,7 +16,7 @@
       "primary_key": true
     },
     {
-      "name": "wpp_mw",
+      "name": "imbalancenetting",
       "data_type": {
         "base": {
           "type": "STRING"
@@ -25,7 +25,7 @@
       "nullable": true
     },
     {
-      "name": "npp_mw",
+      "name": "mari_mfrr",
       "data_type": {
         "base": {
           "type": "STRING"
@@ -34,7 +34,7 @@
       "nullable": true
     },
     {
-      "name": "pvpp_mw",
+      "name": "picasso_afrr",
       "data_type": {
         "base": {
           "type": "STRING"
@@ -43,52 +43,7 @@
       "nullable": true
     },
     {
-      "name": "ccgt_mw",
-      "data_type": {
-        "base": {
-          "type": "STRING"
-        }
-      },
-      "nullable": true
-    },
-    {
-      "name": "altpp_mw",
-      "data_type": {
-        "base": {
-          "type": "STRING"
-        }
-      },
-      "nullable": true
-    },
-    {
-      "name": "pspp_mw",
-      "data_type": {
-        "base": {
-          "type": "STRING"
-        }
-      },
-      "nullable": true
-    },
-    {
-      "name": "hpp_mw",
-      "data_type": {
-        "base": {
-          "type": "STRING"
-        }
-      },
-      "nullable": true
-    },
-    {
-      "name": "appp_mw",
-      "data_type": {
-        "base": {
-          "type": "STRING"
-        }
-      },
-      "nullable": true
-    },
-    {
-      "name": "tpp_mw",
+      "name": "suma_vymeny_s_evropskymi_platformami",
       "data_type": {
         "base": {
           "type": "STRING"
