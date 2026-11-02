@@ -21,17 +21,18 @@ KEY_CONTINUE_ON_FAIL = "continue_on_fail"
 
 KEY_STATE_ENDPOINT_COLUMNS = "endpoint_columns"
 
-# Fetched in one request: 30-day chunks would cut weeks/months/years and return partial aggregates
-WHOLE_RANGE_GRANULARITIES = ["WE", "MO", "YR"]
+# Fetched in one request: 30-day chunks would cut months/years and return partial aggregates
+WHOLE_RANGE_GRANULARITIES = ["MO", "YR"]
 
 # Granularities that return data, per endpoint (checked against the live API).
+# WE is left out: the API returns the March daylight-saving week several times with different values.
 # Endpoints missing here ignore granularity and accept any value.
 SUPPORTED_GRANULARITIES = {
-    "CrossborderPowerFlows": ["MI", "QH", "HR", "DY", "WE", "MO", "YR"],
-    "GenerationRES": ["MI", "QH", "HR", "DY", "WE", "MO", "YR"],
-    "Load": ["MI", "QH", "HR", "DY", "WE", "MO", "YR"],
-    "Generation": ["QH", "HR", "DY", "WE", "MO", "YR"],
-    "GenerationPlan": ["QH", "HR", "DY", "WE", "MO", "YR"],
+    "CrossborderPowerFlows": ["MI", "QH", "HR", "DY", "MO", "YR"],
+    "GenerationRES": ["MI", "QH", "HR", "DY", "MO", "YR"],
+    "Load": ["MI", "QH", "HR", "DY", "MO", "YR"],
+    "Generation": ["QH", "HR", "DY", "MO", "YR"],
+    "GenerationPlan": ["QH", "HR", "DY", "MO", "YR"],
     "EmergencyExchange": ["QH", "HR", "DY"],
     "AktivaceSVRvCR": ["MI", "QH", "HR", "DY"],
     "ExportImportSVR": ["MI", "QH", "HR", "DY"],

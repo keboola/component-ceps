@@ -56,6 +56,12 @@ class TestComponent(unittest.TestCase):
             with self.assertRaisesRegex(UserException, "Supported: QH, HR, DY."):
                 Component.validate_granularities(endpoints, continue_on_fail=False)
 
+    def test_validate_granularities_week_unsupported(self):
+        for endpoint_name in ["CrossborderPowerFlows", "Generation", "GenerationPlan", "GenerationRES", "Load"]:
+            endpoints = [{"endpoint_name": endpoint_name, "granularity": "WE"}]
+            with self.assertRaisesRegex(UserException, f'{endpoint_name} does not support granularity "WE"'):
+                Component.validate_granularities(endpoints, continue_on_fail=False)
+
 
 if __name__ == "__main__":
     # import sys;sys.argv = ['', 'Test.testName']

@@ -451,13 +451,13 @@
     }
   },
   {
-    "name": "42_generation_res_WE",
-    "description": "GenerationRES with WE granularity",
+    "name": "42_generation_res_MO",
+    "description": "GenerationRES with MO granularity (whole date range in one request)",
     "config": {
       "parameters": {
         "date_from": "2025-01-01",
-        "date_to": "2025-03-31",
-        "endpoints": [{"endpoint_name": "GenerationRES", "granularity": "WE"}]
+        "date_to": "2025-06-30",
+        "endpoints": [{"endpoint_name": "GenerationRES", "granularity": "MO"}]
       }
     }
   }

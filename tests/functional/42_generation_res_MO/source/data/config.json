@@ -1,11 +1,11 @@
 {
   "parameters": {
     "date_from": "2025-01-01",
-    "date_to": "2025-03-31",
+    "date_to": "2025-06-30",
     "endpoints": [
       {
         "endpoint_name": "GenerationRES",
-        "granularity": "WE"
+        "granularity": "MO"
       }
     ]
   }

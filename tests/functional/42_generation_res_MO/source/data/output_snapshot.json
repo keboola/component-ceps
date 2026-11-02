@@ -9,9 +9,9 @@
         "pvpp_mw",
         "granularity"
       ],
-      "hash": "sha256:41c8a66fe26b8df9fc50cb68664c303fa5b04d33273b0f1187e46b61555d90d3",
-      "row_count": 20,
-      "size_bytes": 771
+      "hash": "sha256:3a6d18be55eb04fe493a1a936b1dc3d697a0d1f2e93e0f34c0fe0a722b43ed48",
+      "row_count": 7,
+      "size_bytes": 271
     },
     "GenerationRES.csv.manifest": {
       "columns": null,

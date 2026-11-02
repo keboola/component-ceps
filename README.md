@@ -16,7 +16,7 @@ Configuration
 
  - Date from (date_from) - [REQ] Date from which to start fetching data e.g. 3 days ago or exact date 2021-01-01
  - Date to (date_to) - [REQ] Date to which data fetching should be performed e.g. 3 days ago or exact date 2021-01-01
- - Endpoints (endpoints) - [REQ] Select list of endpoints and their granularity (MI, QH, HR, DY, WE, MO, YR, None)
+ - Endpoints (endpoints) - [REQ] Select list of endpoints and their granularity (MI, QH, HR, DY, MO, YR, None)
 
 ## Endpoints
 
@@ -25,15 +25,15 @@ Configuration
 | AktivaceSVRvCR | MI, QH, HR, DY | date, granularity |
 | AktualniCenaRE | None (1-minute data) | date |
 | AktualniSystemovaOdchylkaCR | MI, QH, HR | date, granularity |
-| CrossborderPowerFlows | MI, QH, HR, DY, WE, MO, YR | date, granularity |
+| CrossborderPowerFlows | MI, QH, HR, DY, MO, YR | date, granularity |
 | EmergencyExchange | QH, HR, DY | date, granularity, border_and_direction, type_of_exchange |
 | Emise | QH | date |
 | ExportImportSVR | MI, QH, HR, DY | date, granularity |
 | Frekvence | None (1-minute data) | date |
-| Generation | QH, HR, DY, WE, MO, YR | date, granularity |
-| GenerationPlan | QH, HR, DY, WE, MO, YR | date, granularity |
-| GenerationRES | MI, QH, HR, DY, WE, MO, YR | date, granularity |
-| Load | MI, QH, HR, DY, WE, MO, YR | date, granularity |
+| Generation | QH, HR, DY, MO, YR | date, granularity |
+| GenerationPlan | QH, HR, DY, MO, YR | date, granularity |
+| GenerationRES | MI, QH, HR, DY, MO, YR | date, granularity |
+| Load | MI, QH, HR, DY, MO, YR | date, granularity |
 | NepredvidatelneOdmitnuteNabidky | None | hour, date, unit |
 | OdhadovanaCenaOdchylky | None | interval, date |
 | OfferPrices | None | hour, date, unit |
@@ -49,12 +49,13 @@ read such a table. Endpoints that ignore the granularity keep `date` without `gr
 returns the same rows.
 
 Notes on the ČEPS API:
- - WE, MO and YR are fetched in a single request for the whole date range, so periods are not cut into partial aggregates.
+ - MO and YR are fetched in a single request for the whole date range, so periods are not cut into partial aggregates.
    Endpoints that ignore the granularity are always fetched in 30-day chunks.
- - At WE, MO and YR, EmergencyExchange returns one row per event day dated at the start of the period, so the rows are
+ - At MO and YR, EmergencyExchange returns one row per event day dated at the start of the period, so the rows are
    not unique. Use DY and aggregate it yourself.
  - Emise always returns quarter-hour data, whatever granularity is selected.
- - At WE granularity the API returns the week of the March daylight-saving change several times with different values.
+ - WE is not offered. At WE the API returns the week of the March daylight-saving change several times with
+   different values, so the weekly value would be wrong. Use DY and aggregate it yourself.
 
 Upgrading from 0.1.x:
  - GenerationRES had no primary key, so an existing GenerationRES table may contain duplicate rows. It now uses
