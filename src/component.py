@@ -142,19 +142,23 @@ class Component(ComponentBase):
     @staticmethod
     def get_endpoint_p_keys(endpoint_name):
         if endpoint_name in [
-            "AktualniSystemovaOdchylkaCR",
-            "CrossborderPowerFlows",
             "Emise",
-            "Generation",
-            "GenerationPlan",
-            "Load",
             "RegulationEnergy",
             "RegulationEnergyB",
             "AktualniCenaRE",
             "Frekvence",
         ]:
             return ["date"]
-        elif endpoint_name in ["GenerationRES", "AktivaceSVRvCR", "ExportImportSVR"]:
+        elif endpoint_name in [
+            "AktivaceSVRvCR",
+            "AktualniSystemovaOdchylkaCR",
+            "CrossborderPowerFlows",
+            "ExportImportSVR",
+            "Generation",
+            "GenerationPlan",
+            "GenerationRES",
+            "Load",
+        ]:
             return ["date", "granularity"]
         elif endpoint_name in ["EmergencyExchange"]:
             return ["date", "granularity", "border_and_direction", "type_of_exchange"]

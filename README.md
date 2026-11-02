@@ -24,16 +24,16 @@ Configuration
 |---|---|---|
 | AktivaceSVRvCR | MI, QH, HR, DY | date, granularity |
 | AktualniCenaRE | None (1-minute data) | date |
-| AktualniSystemovaOdchylkaCR | MI, QH, HR | date |
-| CrossborderPowerFlows | MI, QH, HR, DY, WE, MO, YR | date |
+| AktualniSystemovaOdchylkaCR | MI, QH, HR | date, granularity |
+| CrossborderPowerFlows | MI, QH, HR, DY, WE, MO, YR | date, granularity |
 | EmergencyExchange | QH, HR, DY | date, granularity, border_and_direction, type_of_exchange |
 | Emise | QH | date |
 | ExportImportSVR | MI, QH, HR, DY | date, granularity |
 | Frekvence | None (1-minute data) | date |
-| Generation | QH, HR, DY, WE, MO, YR | date |
-| GenerationPlan | QH, HR, DY, WE, MO, YR | date |
+| Generation | QH, HR, DY, WE, MO, YR | date, granularity |
+| GenerationPlan | QH, HR, DY, WE, MO, YR | date, granularity |
 | GenerationRES | MI, QH, HR, DY, WE, MO, YR | date, granularity |
-| Load | MI, QH, HR, DY, WE, MO, YR | date |
+| Load | MI, QH, HR, DY, WE, MO, YR | date, granularity |
 | NepredvidatelneOdmitnuteNabidky | None | hour, date, unit |
 | OdhadovanaCenaOdchylky | None | interval, date |
 | OfferPrices | None | hour, date, unit |
@@ -42,10 +42,11 @@ Not every endpoint supports every granularity. The run checks the selected combi
 downloading anything: with `continue_on_fail` off it fails, otherwise it logs a warning and skips the unsupported
 endpoints. Endpoints listed with None ignore the granularity, so any value is accepted for them.
 
-Each endpoint is written to one table named after the endpoint (e.g. `Load`), incrementally. Except for GenerationRES,
-the primary key does not contain the granularity, so select each endpoint with one granularity per configuration. If
-you need several granularities of one endpoint, use one configuration for each granularity. Otherwise rows with the
-same timestamp overwrite each other.
+Each endpoint is written to one table named after the endpoint (e.g. `Load`), incrementally. All granularities of one
+endpoint go to the same table. For endpoints that support several granularities, the primary key contains
+`granularity`, so the rows of two granularities that share a timestamp are both kept. Filter on `granularity` when you
+read such a table. Endpoints that ignore the granularity keep `date` without `granularity`, because every granularity
+returns the same rows.
 
 Notes on the ČEPS API:
  - WE, MO and YR are fetched in a single request for the whole date range, so periods are not cut into partial aggregates.
@@ -61,9 +62,11 @@ Upgrading from 0.1.x:
    job log shows "The new primary key cannot be created; duplicate values in primary key columns exist" and new rows
    keep being appended as duplicates. Delete the GenerationRES table (or remove the duplicates) once, then run the
    configuration again.
- - `granularity` is in the GenerationRES key because one endpoint configured with several granularities writes to one
-   table. With `date` alone, the rows of two granularities that share a timestamp overwrite each other. No other
-   endpoint changes its key, so no other existing table is affected.
+ - AktualniSystemovaOdchylkaCR, CrossborderPowerFlows, Generation, GenerationPlan and Load change their primary key from
+   `date` to `date, granularity`. Storage changes the key of an existing table on the next run, and the existing rows
+   stay as they are. If a configuration selects only one granularity per endpoint, the data does not change. If it
+   selects several granularities of one endpoint, the rows that share a timestamp were overwritten until now. From now
+   on all of them are kept, so the row count goes up and a timestamp can have one row per granularity.
  - Versions 0.1.5 and 0.1.6 loaded the CSV header as a data row. Remove those rows with `granularity = 'granularity'`.
 
 
