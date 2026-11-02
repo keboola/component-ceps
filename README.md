@@ -42,10 +42,10 @@ Not every endpoint supports every granularity. The run checks the selected combi
 downloading anything: with `continue_on_fail` off it fails, otherwise it logs a warning and skips the unsupported
 endpoints. Endpoints listed with None ignore the granularity, so any value is accepted for them.
 
-Each endpoint is written to one table named after the endpoint (e.g. `Load`), incrementally. The primary key does not
-contain the granularity, so select each endpoint with one granularity per configuration. If you need several
-granularities of one endpoint, use one configuration for each granularity. Otherwise rows with the same timestamp
-overwrite each other.
+Each endpoint is written to one table named after the endpoint (e.g. `Load`), incrementally. Except for GenerationRES,
+the primary key does not contain the granularity, so select each endpoint with one granularity per configuration. If
+you need several granularities of one endpoint, use one configuration for each granularity. Otherwise rows with the
+same timestamp overwrite each other.
 
 Notes on the ČEPS API:
  - WE, MO and YR are fetched in a single request for the whole date range, so periods are not cut into partial aggregates.
