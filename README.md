@@ -22,13 +22,13 @@ Configuration
 
 | Endpoint | Granularity | Primary key |
 |---|---|---|
-| AktivaceSVRvCR | MI, QH, HR, DY | date |
+| AktivaceSVRvCR | MI, QH, HR, DY | date, granularity |
 | AktualniCenaRE | None (1-minute data) | date |
 | AktualniSystemovaOdchylkaCR | MI, QH, HR | date |
 | CrossborderPowerFlows | MI, QH, HR, DY, WE, MO, YR | date |
-| EmergencyExchange | QH, HR, DY | date, border_and_direction, type_of_exchange |
+| EmergencyExchange | QH, HR, DY | date, granularity, border_and_direction, type_of_exchange |
 | Emise | QH | date |
-| ExportImportSVR | MI, QH, HR, DY | date |
+| ExportImportSVR | MI, QH, HR, DY | date, granularity |
 | Frekvence | None (1-minute data) | date |
 | Generation | QH, HR, DY, WE, MO, YR | date |
 | GenerationPlan | QH, HR, DY, WE, MO, YR | date |

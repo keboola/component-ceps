@@ -142,11 +142,9 @@ class Component(ComponentBase):
     @staticmethod
     def get_endpoint_p_keys(endpoint_name):
         if endpoint_name in [
-            "AktivaceSVRvCR",
             "AktualniSystemovaOdchylkaCR",
             "CrossborderPowerFlows",
             "Emise",
-            "ExportImportSVR",
             "Generation",
             "GenerationPlan",
             "Load",
@@ -156,10 +154,10 @@ class Component(ComponentBase):
             "Frekvence",
         ]:
             return ["date"]
-        elif endpoint_name in ["GenerationRES"]:
+        elif endpoint_name in ["GenerationRES", "AktivaceSVRvCR", "ExportImportSVR"]:
             return ["date", "granularity"]
         elif endpoint_name in ["EmergencyExchange"]:
-            return ["date", "border_and_direction", "type_of_exchange"]
+            return ["date", "granularity", "border_and_direction", "type_of_exchange"]
         elif endpoint_name in ["OdhadovanaCenaOdchylky"]:
             return ["interval", "date"]
         elif endpoint_name in ["OfferPrices", "NepredvidatelneOdmitnuteNabidky"]:
