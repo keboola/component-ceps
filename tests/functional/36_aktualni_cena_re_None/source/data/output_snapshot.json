@@ -1,0 +1,26 @@
+{
+  "files": {},
+  "hash_algorithm": "sha256",
+  "tables": {
+    "AktualniCenaRE.csv": {
+      "columns": [
+        "date",
+        "afrr_eur_mwh",
+        "mfrr_plus_eur_mwh",
+        "mfrr_minus_eur_mwh",
+        "mfrr5_eur_mwh",
+        "granularity"
+      ],
+      "hash": "sha256:f30962855540db57977392c2551e3db30bf51d02f26d58d9a5e51eef53e1f02a",
+      "row_count": 1442,
+      "size_bytes": 60375
+    },
+    "AktualniCenaRE.csv.manifest": {
+      "columns": null,
+      "hash": "sha256:d2a7f210e109a989be4cac6511dc2171a6de93d8903c2d4e49354c1ed21e0d44",
+      "row_count": null,
+      "size_bytes": 1073
+    }
+  },
+  "version": "1.0"
+}

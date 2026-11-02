@@ -1,0 +1,16 @@
+{
+  "parameters": {
+    "date_from": "2026-10-01",
+    "date_to": "2026-10-03",
+    "endpoints": [
+      {
+        "endpoint_name": "Load",
+        "granularity": "DY"
+      },
+      {
+        "endpoint_name": "Load",
+        "granularity": "HR"
+      }
+    ]
+  }
+}

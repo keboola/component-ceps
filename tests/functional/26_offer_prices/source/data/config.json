@@ -1,7 +1,7 @@
 {
   "parameters": {
-    "date_from": "2026-01-01",
-    "date_to": "2026-02-28",
+    "date_from": "2020-06-01",
+    "date_to": "2020-06-03",
     "endpoints": [
       {
         "endpoint_name": "OfferPrices",

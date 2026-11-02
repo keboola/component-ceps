@@ -3,7 +3,7 @@
   "write_always": false,
   "delimiter": ",",
   "manifest_type": "out",
-  "has_header": false,
+  "has_header": true,
   "schema": [
     {
       "name": "date",
@@ -130,7 +130,8 @@
           "type": "STRING"
         }
       },
-      "nullable": true
+      "nullable": true,
+      "primary_key": true
     }
   ]
 }

@@ -97,6 +97,74 @@
       "date",
       "aktualni_odchylka_mw",
       "granularity"
+    ],
+    "AktivaceSVRvCR": [
+      "date",
+      "afrr_plus_mw",
+      "afrr_minus_mw",
+      "mfrr_plus_mw",
+      "mfrr_minus_mw",
+      "mfrr5_mw",
+      "granularity"
+    ],
+    "AktualniCenaRE": [
+      "date",
+      "afrr_eur_mwh",
+      "mfrr_plus_eur_mwh",
+      "mfrr_minus_eur_mwh",
+      "mfrr5_eur_mwh",
+      "granularity"
+    ],
+    "Emise": [
+      "date",
+      "emise_g_co2kwh",
+      "granularity"
+    ],
+    "EmergencyExchange": [
+      "date",
+      "border_and_direction",
+      "type_of_exchange",
+      "power_mw_energy_mwh",
+      "granularity"
+    ],
+    "ExportImportSVR": [
+      "date",
+      "imbalancenetting",
+      "mari_mfrr",
+      "picasso_afrr",
+      "suma_vymeny_s_evropskymi_platformami",
+      "granularity"
+    ],
+    "Frekvence": [
+      "date",
+      "frekvence_hz",
+      "granularity"
+    ],
+    "NepredvidatelneOdmitnuteNabidky": [
+      "date",
+      "hour",
+      "unit",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13",
+      "14",
+      "15",
+      "16",
+      "17",
+      "18",
+      "19",
+      "20",
+      "granularity"
     ]
   }
 }
